@@ -3,6 +3,7 @@
 // 1. Configuration and helpers
 @import
   'utils/settings',
+  'utils/mixins',
   'utils/type',
   'utils/color',
   'utils/positioning',
@@ -46,7 +47,8 @@
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/inputs';
 
 // 6. Page-specific styles
 // @import
