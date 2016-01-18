@@ -1,0 +1,45 @@
+//
+// Colors
+// 
+
+// Background color helper 
+.bg {
+  @each $color-name, $color-value in $colors {
+    &-#{"" + $color-name} {
+      background-color: $color-value !important;
+    }
+  }
+}
+
+// Color helper 
+.c {
+  @each $color-name, $color-value in $colors {
+    &-#{"" + $color-name} {
+      color: $color-value !important;
+    }
+  }
+}
+
+.a {
+  @each $color-name, $color-value in $colors {
+    &-#{"" + $color-name} {
+      color: $color-value !important;
+
+      &:hover {
+
+      }
+    }
+  }
+}
+
+.i {
+  @each $color-name, $color-value in $colors {
+    &-#{"" + $color-name} {
+      svg {
+        use { 
+          fill: $color-value !important;
+        }
+      }
+    }  
+  }  
+}

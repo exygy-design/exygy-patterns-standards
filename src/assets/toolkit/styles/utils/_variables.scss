@@ -46,15 +46,18 @@ $type-weight: (
 //
 
 // Brand Colors
-$primary-color:     #0077da;
-$secondary-color:   #f90;
+$primary-color:     #e67e22;
+$secondary-color:   #5fb8c5;
+$attention:         #00bed5;
 $primary:           $primary-color;
 $secondary:         $secondary-color;
 
-$success-color:     #2e8540;
+$success-color:     #63c848;
 $alert-color:       #e31c3d;
+$warn:              #eec134;
 $success:           $success-color;
 $alert:             $alert-color;
+$warning-color:     $warn;
 
 
 // This is a Sass map. It is neat.
@@ -63,8 +66,10 @@ $alert:             $alert-color;
 $colors: (
   primary: $primary,
   secondary: $secondary,
+  attention: $attention,
   alert: $alert,
   success: $success,
+  warn: $warn,
 );
 
 // Grid
