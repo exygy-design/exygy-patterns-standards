@@ -1,8 +1,56 @@
-/**
- * Toolkit styles
- */
+@charset 'UTF-8';
 
+// 1. Configuration and helpers
+@import
+  'utils/settings',
+  'utils/type',
+  'utils/positioning',
+  'utils/spacing';
 
-body {
-	font-family: sans-serif;
-}
+// 2. Vendors
+@import
+  'vendor/normalize',
+  'vendor/foundation/components/accordion',
+  'vendor/foundation/components/alert-boxes',
+  'vendor/foundation/components/block-grid',
+  'vendor/foundation/components/breadcrumbs',
+  'vendor/foundation/components/button-groups',
+  'vendor/foundation/components/buttons',
+  'vendor/foundation/components/clearing',
+  'vendor/foundation/components/dropdown',
+  'vendor/foundation/components/dropdown-buttons',
+  'vendor/foundation/components/forms',
+  'vendor/foundation/components/grid',
+  'vendor/foundation/components/icon-bar',
+  'vendor/foundation/components/inline-lists',
+  'vendor/foundation/components/labels',
+  'vendor/foundation/components/pagination',
+  'vendor/foundation/components/panels',
+  'vendor/foundation/components/reveal',
+  'vendor/foundation/components/sub-nav',
+  'vendor/foundation/components/tables',
+  'vendor/foundation/components/tabs',
+  'vendor/foundation/components/tooltips',
+  'vendor/foundation/components/top-bar',
+  'vendor/foundation/components/visibility';
+
+// 3. Base stuff
+@import
+  'base/typography';
+
+// 4. Layout-related sections
+// @import
+//   'layout/header',
+//   'layout/footer';
+
+// 5. Components
+@import
+  'components/button';
+
+// 6. Page-specific styles
+// @import
+  // 'pages/home';
+
+// 7. Themes
+// @import
+  // 'themes/default';

@@ -1,0 +1,122 @@
+//
+// Typography
+//
+
+// _typography.scss
+#{h1, h2, h3, h4, h5, h6} {
+  font-family: $serif-font-family;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1,
+.alpha,
+.t-alpha {
+  @include responsive-text-size('alpha');
+}
+
+h2,
+.beta,
+.t-beta {
+  @include responsive-text-size('beta');
+}
+
+h3,
+.gamma,
+.t-gamma {
+  @include responsive-text-size('gamma');
+}
+
+h4,
+.delta,
+.t-delta {
+  @include responsive-text-size('delta');
+}
+
+h5,
+.epsilon,
+.t-epsilon {
+  @include responsive-text-size('epsilon');
+}
+
+h6,
+.base,
+.t-base {
+  @include responsive-text-size('base');
+}
+
+small,
+.small,
+.t-small {
+  @include responsive-text-size('small');
+}
+
+.tiny,
+.t-tiny {
+  @include responsive-text-size('tiny');
+}
+
+.micro,
+.t-micro {
+  @include responsive-text-size('micro');
+}
+
+.quark, 
+.t-quark {
+  @include responsive-text-size('quark');
+}
+
+body {
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ul li ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl dt, dl dd {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: $charcoal;
+  margin: 0;
+
+  &.hr-1 {
+    height: 1px;
+  }
+
+  &.hr-2 {
+    height: 2px;
+  }
+
+  &.hr-3 {
+    height: 3px;
+  }
+
+  &.hr-4 {
+    height: 4px;
+  }
+
+  &.hr-5 {
+    height: 5px;
+  }
+
+  &.tall {
+    margin: 2rem 0;
+  }
+}
