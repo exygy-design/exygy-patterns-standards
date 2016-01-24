@@ -124,6 +124,16 @@
 					<ul>
 								<li class="f-menu_accordion_group">
 									<div class="control"></div>
+									<a class="f-menu_accordion_toggle" href="molecules.html#blocks">Blocks</a>
+		
+									<ul class="f-menu_accordion">
+											<li>
+												<a href="molecules.html#blocks.card">Card</a>
+											</li>
+									</ul>
+							</li>
+								<li class="f-menu_accordion_group">
+									<div class="control"></div>
 									<a class="f-menu_accordion_toggle" href="molecules.html#components">Components</a>
 		
 									<ul class="f-menu_accordion">
@@ -198,6 +208,23 @@
 												<a href="molecules.html#text.paragraph">Paragraph</a>
 											</li>
 									</ul>
+							</li>
+					</ul>
+				</li>
+				<li>
+					<a href="organisms.html" class="f-menu__heading">Organisms</a>
+					<ul>
+								<li>
+								<a href="organisms.html#footer">Footer</a>
+		
+							</li>
+								<li>
+								<a href="organisms.html#form-login">Form Login</a>
+		
+							</li>
+								<li>
+								<a href="organisms.html#hero">Hero</a>
+		
 							</li>
 					</ul>
 				</li>
@@ -329,6 +356,166 @@
 
 	
 <h1 data-f-toggle="labels">Organisms</h1>
+
+
+<div class="f-item-group" id="footer">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h2 class="f-item-heading">Footer</h2>
+		<div class="f-item-controls">
+			
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+		</div>
+	</div>
+<div class="f-item-preview">
+	<footer class="footer">
+	<div class="row">
+		<div class="small-12 columns">
+			<p class="slogan">Finger-lickin' good</p>
+			<p class="links">
+				<a href="#">Home</a>
+				<a href="#">Blog</a>
+				<a href="#">Pricing</a>
+				<a href="#">About</a>
+				<a href="#">Faq</a>
+				<a href="#">Contact</a>
+			</p>
+			<p class="copywrite">Copywrite not copypwrite © 2015</p>
+		</div>
+	</div>
+</footer>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<pre><code class="language-markup">&lt;footer class=&quot;footer&quot;&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;small-12 columns&quot;&gt;
+			&lt;p class=&quot;slogan&quot;&gt;Finger-lickin&#x27; good&lt;/p&gt;
+			&lt;p class=&quot;links&quot;&gt;
+				&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;
+				&lt;a href=&quot;#&quot;&gt;Blog&lt;/a&gt;
+				&lt;a href=&quot;#&quot;&gt;Pricing&lt;/a&gt;
+				&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;
+				&lt;a href=&quot;#&quot;&gt;Faq&lt;/a&gt;
+				&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;
+			&lt;/p&gt;
+			&lt;p class=&quot;copywrite&quot;&gt;Copywrite not copypwrite © 2015&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="form-login">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h2 class="f-item-heading">Form Login</h2>
+		<div class="f-item-controls">
+			
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+		</div>
+	</div>
+<div class="f-item-preview">
+	<div class="row">
+	<div class="medium-6 medium-centered large-4 large-centered columns">
+
+		<form>
+			<div class="row column log-in-form">
+				<h4 class="text-center">Log in with you email account</h4>
+				<label>Email
+					<input type="text" placeholder="somebody@example.com">
+				</label>
+				<label>Password
+					<input type="text" placeholder="Password">
+				</label>
+				<input id="show-password" type="checkbox">
+				<label for="show-password">Show password</label>
+				<p><a type="submit" class="button expand">Log In</a></p>
+				<p class="text-center"><a href="#">Forgot your password?</a></p>
+			</div>
+		</form>
+
+	</div>
+</div>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<pre><code class="language-markup">&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;medium-6 medium-centered large-4 large-centered columns&quot;&gt;
+
+		&lt;form&gt;
+			&lt;div class=&quot;row column log-in-form&quot;&gt;
+				&lt;h4 class=&quot;text-center&quot;&gt;Log in with you email account&lt;/h4&gt;
+				&lt;label&gt;Email
+					&lt;input type=&quot;text&quot; placeholder=&quot;somebody@example.com&quot;&gt;
+				&lt;/label&gt;
+				&lt;label&gt;Password
+					&lt;input type=&quot;text&quot; placeholder=&quot;Password&quot;&gt;
+				&lt;/label&gt;
+				&lt;input id=&quot;show-password&quot; type=&quot;checkbox&quot;&gt;
+				&lt;label for=&quot;show-password&quot;&gt;Show password&lt;/label&gt;
+				&lt;p&gt;&lt;a type=&quot;submit&quot; class=&quot;button expand&quot;&gt;Log In&lt;/a&gt;&lt;/p&gt;
+				&lt;p class=&quot;text-center&quot;&gt;&lt;a href=&quot;#&quot;&gt;Forgot your password?&lt;/a&gt;&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;
+
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+
+</div>
+
+
+<div class="f-item-group" id="hero">
+
+	<div class="f-item-heading-group" data-f-toggle="labels">
+		<h2 class="f-item-heading">Hero</h2>
+		<div class="f-item-controls">
+			
+			<span class="f-control f-icon" data-f-toggle-control="code" title="Toggle Code">
+				<svg>
+					<use xlink:href="#f-icon-code" />
+				</svg>
+			</span>
+		</div>
+	</div>
+<div class="f-item-preview">
+	<div class="hero">
+	<div class="hero-inner">
+		<a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+		<div class="hero-copy">
+			<h1>Short description of Product</h1>
+			<p>A few reasons why this product is worth using, who it's for and why they need it.</p>
+		</div>
+	</div>
+</div>
+</div>
+<div class="f-item-code f-item-hidden" data-f-toggle="code">
+	<pre><code class="language-markup">&lt;div class=&quot;hero&quot;&gt;
+	&lt;div class=&quot;hero-inner&quot;&gt;
+		&lt;a href=&quot;&quot; class=&quot;hero-logo&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+&quot; alt=&quot;Logo Image&quot;&gt;&lt;/a&gt;
+		&lt;div class=&quot;hero-copy&quot;&gt;
+			&lt;h1&gt;Short description of Product&lt;/h1&gt;
+			&lt;p&gt;A few reasons why this product is worth using, who it&#x27;s for and why they need it.&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+
+</div>
 
 
 

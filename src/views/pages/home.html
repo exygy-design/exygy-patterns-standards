@@ -1,7 +1,24 @@
-<h1>Hello, World!</h1>
+{{> navigation.top-bar }}
+{{> hero }}
 
-{{> text.[paragraph]}}
+<div class="row">
+  <section class="row">
+    <div class="large-12 columns">
+      <div class="padding--2x">
+        <h1>Hello, World!</h1>
 
-<div>
-	{{> forms.[form]}}
+        {{> text.[paragraph]}}
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="large-6 columns">
+      <div class="padding--2x">
+  	   {{> forms.[form]}}
+      </div> 
+    </div>
+  </section>
 </div>
+
+{{> footer }}

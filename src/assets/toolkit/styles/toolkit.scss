@@ -41,14 +41,17 @@
   'base/typography';
 
 // 4. Layout-related sections
-// @import
-//   'layout/header',
-//   'layout/footer';
+@import
+  // 'layout/header',
+  'layout/footer';
 
 // 5. Components
 @import
   'components/button',
-  'components/inputs';
+  'components/inputs',
+  'components/card',
+  'components/hero',
+  'components/login';
 
 // 6. Page-specific styles
 // @import
