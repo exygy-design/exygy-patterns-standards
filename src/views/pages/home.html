@@ -2,21 +2,24 @@
 {{> hero }}
 
 <div class="row">
-  <section class="row">
+  <section class="row padding-top--2x padding-bottom--2x">
     <div class="large-12 columns">
-      <div class="padding--2x">
-        <h1>Hello, World!</h1>
+      <h1>Hello, World!</h1>
 
-        {{> text.[paragraph]}}
-      </div>
+      {{> text.[paragraph]}}
+      {{> buttons.button text="My Button"}}
     </div>
   </section>
 
-  <section class="row">
-    <div class="large-6 columns">
-      <div class="padding--2x">
-  	   {{> forms.[form]}}
-      </div> 
+  <section class="row padding-bottom--2x">
+    <div class="large-4 columns">
+      {{> blocks.[card] content="Mad Max"}}
+    </div>
+    <div class="large-4 columns">
+      {{> blocks.[card] content="Road Warrior"}}
+    </div>
+    <div class="large-4 columns">
+      {{> blocks.[card] content="Fury Road"}}
     </div>
   </section>
 </div>
