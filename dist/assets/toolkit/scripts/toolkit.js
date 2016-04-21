@@ -57,16 +57,21 @@
 	// For Bower Components
 	// Because Bower does not force a module structure, you have use a more specific path.
 
-	// we're now requiring it from the node_modules directory
+	// we're now requiring it from the bower/vendor directory
 	var $ = __webpack_require__(2);
 	window.jQuery = $;
 
-	// Loading foundation from bower in order to support modernizr module
+	// Loading foundation from node
 	var foundation = __webpack_require__(4);
-	var foundationAccordion = __webpack_require__(5);
-	var foundationReveal = __webpack_require__(6);
-	var foundationAbide = __webpack_require__(7);
-	var foundationTooltip = __webpack_require__(8);
+	var foundationMediaQuery = __webpack_require__(5);
+	var foundationKeyboard = __webpack_require__(6);
+	var foundationBox = __webpack_require__(7);
+	var foundationTriggers = __webpack_require__(8);
+	var foundationDropdown = __webpack_require__(9);
+	var foundationAccordion = __webpack_require__(10);
+	var foundationReveal = __webpack_require__(11);
+	var foundationAbide = __webpack_require__(12);
+	var foundationTooltip = __webpack_require__(13);
 
 	//require('smoothstate/jquery.smoothState.min.js');
 	// var smoothState = require('./jquery.smoothState.min.js');
@@ -2418,6 +2423,1204 @@
 
 	!function($) {
 
+	// Default set of media queries
+	const defaultQueries = {
+	  'default' : 'only screen',
+	  landscape : 'only screen and (orientation: landscape)',
+	  portrait : 'only screen and (orientation: portrait)',
+	  retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
+	    'only screen and (min--moz-device-pixel-ratio: 2),' +
+	    'only screen and (-o-min-device-pixel-ratio: 2/1),' +
+	    'only screen and (min-device-pixel-ratio: 2),' +
+	    'only screen and (min-resolution: 192dpi),' +
+	    'only screen and (min-resolution: 2dppx)'
+	};
+
+	var MediaQuery = {
+	  queries: [],
+
+	  current: '',
+
+	  /**
+	   * Initializes the media query helper, by extracting the breakpoint list from the CSS and activating the breakpoint watcher.
+	   * @function
+	   * @private
+	   */
+	  _init() {
+	    var self = this;
+	    var extractedStyles = $('.foundation-mq').css('font-family');
+	    var namedQueries;
+
+	    namedQueries = parseStyleToObject(extractedStyles);
+
+	    for (var key in namedQueries) {
+	      self.queries.push({
+	        name: key,
+	        value: `only screen and (min-width: ${namedQueries[key]})`
+	      });
+	    }
+
+	    this.current = this._getCurrentSize();
+
+	    this._watcher();
+	  },
+
+	  /**
+	   * Checks if the screen is at least as wide as a breakpoint.
+	   * @function
+	   * @param {String} size - Name of the breakpoint to check.
+	   * @returns {Boolean} `true` if the breakpoint matches, `false` if it's smaller.
+	   */
+	  atLeast(size) {
+	    var query = this.get(size);
+
+	    if (query) {
+	      return window.matchMedia(query).matches;
+	    }
+
+	    return false;
+	  },
+
+	  /**
+	   * Gets the media query of a breakpoint.
+	   * @function
+	   * @param {String} size - Name of the breakpoint to get.
+	   * @returns {String|null} - The media query of the breakpoint, or `null` if the breakpoint doesn't exist.
+	   */
+	  get(size) {
+	    for (var i in this.queries) {
+	      var query = this.queries[i];
+	      if (size === query.name) return query.value;
+	    }
+
+	    return null;
+	  },
+
+	  /**
+	   * Gets the current breakpoint name by testing every breakpoint and returning the last one to match (the biggest one).
+	   * @function
+	   * @private
+	   * @returns {String} Name of the current breakpoint.
+	   */
+	  _getCurrentSize() {
+	    var matched;
+
+	    for (var i = 0; i < this.queries.length; i++) {
+	      var query = this.queries[i];
+
+	      if (window.matchMedia(query.value).matches) {
+	        matched = query;
+	      }
+	    }
+
+	    if (typeof matched === 'object') {
+	      return matched.name;
+	    } else {
+	      return matched;
+	    }
+	  },
+
+	  /**
+	   * Activates the breakpoint watcher, which fires an event on the window whenever the breakpoint changes.
+	   * @function
+	   * @private
+	   */
+	  _watcher() {
+	    $(window).on('resize.zf.mediaquery', () => {
+	      var newSize = this._getCurrentSize();
+
+	      if (newSize !== this.current) {
+	        // Broadcast the media query change on the window
+	        $(window).trigger('changed.zf.mediaquery', [newSize, this.current]);
+
+	        // Change the current media query
+	        this.current = newSize;
+	      }
+	    });
+	  }
+	};
+
+	Foundation.MediaQuery = MediaQuery;
+
+	// matchMedia() polyfill - Test a CSS media type/query in JS.
+	// Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license
+	window.matchMedia || (window.matchMedia = function() {
+	  'use strict';
+
+	  // For browsers that support matchMedium api such as IE 9 and webkit
+	  var styleMedia = (window.styleMedia || window.media);
+
+	  // For those that don't support matchMedium
+	  if (!styleMedia) {
+	    var style   = document.createElement('style'),
+	    script      = document.getElementsByTagName('script')[0],
+	    info        = null;
+
+	    style.type  = 'text/css';
+	    style.id    = 'matchmediajs-test';
+
+	    script.parentNode.insertBefore(style, script);
+
+	    // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
+	    info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
+
+	    styleMedia = {
+	      matchMedium(media) {
+	        var text = `@media ${media}{ #matchmediajs-test { width: 1px; } }`;
+
+	        // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
+	        if (style.styleSheet) {
+	          style.styleSheet.cssText = text;
+	        } else {
+	          style.textContent = text;
+	        }
+
+	        // Test if media query is true or false
+	        return info.width === '1px';
+	      }
+	    }
+	  }
+
+	  return function(media) {
+	    return {
+	      matches: styleMedia.matchMedium(media || 'all'),
+	      media: media || 'all'
+	    };
+	  }
+	}());
+
+	// Thank you: https://github.com/sindresorhus/query-string
+	function parseStyleToObject(str) {
+	  var styleObject = {};
+
+	  if (typeof str !== 'string') {
+	    return styleObject;
+	  }
+
+	  str = str.trim().slice(1, -1); // browsers re-quote string style values
+
+	  if (!str) {
+	    return styleObject;
+	  }
+
+	  styleObject = str.split('&').reduce(function(ret, param) {
+	    var parts = param.replace(/\+/g, ' ').split('=');
+	    var key = parts[0];
+	    var val = parts[1];
+	    key = decodeURIComponent(key);
+
+	    // missing `=` should be `null`:
+	    // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+	    val = val === undefined ? null : decodeURIComponent(val);
+
+	    if (!ret.hasOwnProperty(key)) {
+	      ret[key] = val;
+	    } else if (Array.isArray(ret[key])) {
+	      ret[key].push(val);
+	    } else {
+	      ret[key] = [ret[key], val];
+	    }
+	    return ret;
+	  }, {});
+
+	  return styleObject;
+	}
+
+	Foundation.MediaQuery = MediaQuery;
+
+	}(jQuery);
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	/*******************************************
+	 *                                         *
+	 * This util was created by Marius Olbertz *
+	 * Please thank Marius on GitHub /owlbertz *
+	 * or the web http://www.mariusolbertz.de/ *
+	 *                                         *
+	 ******************************************/
+
+	'use strict';
+
+	!function($) {
+
+	const keyCodes = {
+	  9: 'TAB',
+	  13: 'ENTER',
+	  27: 'ESCAPE',
+	  32: 'SPACE',
+	  37: 'ARROW_LEFT',
+	  38: 'ARROW_UP',
+	  39: 'ARROW_RIGHT',
+	  40: 'ARROW_DOWN'
+	}
+
+	var commands = {}
+
+	var Keyboard = {
+	  keys: getKeyCodes(keyCodes),
+
+	  /**
+	   * Parses the (keyboard) event and returns a String that represents its key
+	   * Can be used like Foundation.parseKey(event) === Foundation.keys.SPACE
+	   * @param {Event} event - the event generated by the event handler
+	   * @return String key - String that represents the key pressed
+	   */
+	  parseKey(event) {
+	    var key = keyCodes[event.which || event.keyCode] || String.fromCharCode(event.which).toUpperCase();
+	    if (event.shiftKey) key = `SHIFT_${key}`;
+	    if (event.ctrlKey) key = `CTRL_${key}`;
+	    if (event.altKey) key = `ALT_${key}`;
+	    return key;
+	  },
+
+	  /**
+	   * Handles the given (keyboard) event
+	   * @param {Event} event - the event generated by the event handler
+	   * @param {String} component - Foundation component's name, e.g. Slider or Reveal
+	   * @param {Objects} functions - collection of functions that are to be executed
+	   */
+	  handleKey(event, component, functions) {
+	    var commandList = commands[component],
+	      keyCode = this.parseKey(event),
+	      cmds,
+	      command,
+	      fn;
+
+	    if (!commandList) return console.warn('Component not defined!');
+
+	    if (typeof commandList.ltr === 'undefined') { // this component does not differentiate between ltr and rtl
+	        cmds = commandList; // use plain list
+	    } else { // merge ltr and rtl: if document is rtl, rtl overwrites ltr and vice versa
+	        if (Foundation.rtl()) cmds = $.extend({}, commandList.ltr, commandList.rtl);
+
+	        else cmds = $.extend({}, commandList.rtl, commandList.ltr);
+	    }
+	    command = cmds[keyCode];
+
+	    fn = functions[command];
+	    if (fn && typeof fn === 'function') { // execute function  if exists
+	      fn.apply();
+	      if (functions.handled || typeof functions.handled === 'function') { // execute function when event was handled
+	          functions.handled.apply();
+	      }
+	    } else {
+	      if (functions.unhandled || typeof functions.unhandled === 'function') { // execute function when event was not handled
+	          functions.unhandled.apply();
+	      }
+	    }
+	  },
+
+	  /**
+	   * Finds all focusable elements within the given `$element`
+	   * @param {jQuery} $element - jQuery object to search within
+	   * @return {jQuery} $focusable - all focusable elements within `$element`
+	   */
+	  findFocusable($element) {
+	    return $element.find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').filter(function() {
+	      if (!$(this).is(':visible') || $(this).attr('tabindex') < 0) { return false; } //only have visible elements and those that have a tabindex greater or equal 0
+	      return true;
+	    });
+	  },
+
+	  /**
+	   * Returns the component name name
+	   * @param {Object} component - Foundation component, e.g. Slider or Reveal
+	   * @return String componentName
+	   */
+
+	  register(componentName, cmds) {
+	    commands[componentName] = cmds;
+	  }
+	}
+
+	/*
+	 * Constants for easier comparing.
+	 * Can be used like Foundation.parseKey(event) === Foundation.keys.SPACE
+	 */
+	function getKeyCodes(kcs) {
+	  var k = {};
+	  for (var kc in kcs) k[kcs[kc]] = kcs[kc];
+	  return k;
+	}
+
+	Foundation.Keyboard = Keyboard;
+
+	}(jQuery);
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	!function($) {
+
+	Foundation.Box = {
+	  ImNotTouchingYou: ImNotTouchingYou,
+	  GetDimensions: GetDimensions,
+	  GetOffsets: GetOffsets
+	}
+
+	/**
+	 * Compares the dimensions of an element to a container and determines collision events with container.
+	 * @function
+	 * @param {jQuery} element - jQuery object to test for collisions.
+	 * @param {jQuery} parent - jQuery object to use as bounding container.
+	 * @param {Boolean} lrOnly - set to true to check left and right values only.
+	 * @param {Boolean} tbOnly - set to true to check top and bottom values only.
+	 * @default if no parent object passed, detects collisions with `window`.
+	 * @returns {Boolean} - true if collision free, false if a collision in any direction.
+	 */
+	function ImNotTouchingYou(element, parent, lrOnly, tbOnly) {
+	  var eleDims = GetDimensions(element),
+	      top, bottom, left, right;
+
+	  if (parent) {
+	    var parDims = GetDimensions(parent);
+
+	    bottom = (eleDims.offset.top + eleDims.height <= parDims.height + parDims.offset.top);
+	    top    = (eleDims.offset.top >= parDims.offset.top);
+	    left   = (eleDims.offset.left >= parDims.offset.left);
+	    right  = (eleDims.offset.left + eleDims.width <= parDims.width);
+	  }
+	  else {
+	    bottom = (eleDims.offset.top + eleDims.height <= eleDims.windowDims.height + eleDims.windowDims.offset.top);
+	    top    = (eleDims.offset.top >= eleDims.windowDims.offset.top);
+	    left   = (eleDims.offset.left >= eleDims.windowDims.offset.left);
+	    right  = (eleDims.offset.left + eleDims.width <= eleDims.windowDims.width);
+	  }
+
+	  var allDirs = [bottom, top, left, right];
+
+	  if (lrOnly) {
+	    return left === right === true;
+	  }
+
+	  if (tbOnly) {
+	    return top === bottom === true;
+	  }
+
+	  return allDirs.indexOf(false) === -1;
+	};
+
+	/**
+	 * Uses native methods to return an object of dimension values.
+	 * @function
+	 * @param {jQuery || HTML} element - jQuery object or DOM element for which to get the dimensions. Can be any element other that document or window.
+	 * @returns {Object} - nested object of integer pixel values
+	 * TODO - if element is window, return only those values.
+	 */
+	function GetDimensions(elem, test){
+	  elem = elem.length ? elem[0] : elem;
+
+	  if (elem === window || elem === document) {
+	    throw new Error("I'm sorry, Dave. I'm afraid I can't do that.");
+	  }
+
+	  var rect = elem.getBoundingClientRect(),
+	      parRect = elem.parentNode.getBoundingClientRect(),
+	      winRect = document.body.getBoundingClientRect(),
+	      winY = window.pageYOffset,
+	      winX = window.pageXOffset;
+
+	  return {
+	    width: rect.width,
+	    height: rect.height,
+	    offset: {
+	      top: rect.top + winY,
+	      left: rect.left + winX
+	    },
+	    parentDims: {
+	      width: parRect.width,
+	      height: parRect.height,
+	      offset: {
+	        top: parRect.top + winY,
+	        left: parRect.left + winX
+	      }
+	    },
+	    windowDims: {
+	      width: winRect.width,
+	      height: winRect.height,
+	      offset: {
+	        top: winY,
+	        left: winX
+	      }
+	    }
+	  }
+	}
+
+	/**
+	 * Returns an object of top and left integer pixel values for dynamically rendered elements,
+	 * such as: Tooltip, Reveal, and Dropdown
+	 * @function
+	 * @param {jQuery} element - jQuery object for the element being positioned.
+	 * @param {jQuery} anchor - jQuery object for the element's anchor point.
+	 * @param {String} position - a string relating to the desired position of the element, relative to it's anchor
+	 * @param {Number} vOffset - integer pixel value of desired vertical separation between anchor and element.
+	 * @param {Number} hOffset - integer pixel value of desired horizontal separation between anchor and element.
+	 * @param {Boolean} isOverflow - if a collision event is detected, sets to true to default the element to full width - any desired offset.
+	 * TODO alter/rewrite to work with `em` values as well/instead of pixels
+	 */
+	function GetOffsets(element, anchor, position, vOffset, hOffset, isOverflow) {
+	  var $eleDims = GetDimensions(element),
+	      $anchorDims = anchor ? GetDimensions(anchor) : null;
+
+	  switch (position) {
+	    case 'top':
+	      return {
+	        left: (Foundation.rtl() ? $anchorDims.offset.left - $eleDims.width + $anchorDims.width : $anchorDims.offset.left),
+	        top: $anchorDims.offset.top - ($eleDims.height + vOffset)
+	      }
+	      break;
+	    case 'left':
+	      return {
+	        left: $anchorDims.offset.left - ($eleDims.width + hOffset),
+	        top: $anchorDims.offset.top
+	      }
+	      break;
+	    case 'right':
+	      return {
+	        left: $anchorDims.offset.left + $anchorDims.width + hOffset,
+	        top: $anchorDims.offset.top
+	      }
+	      break;
+	    case 'center top':
+	      return {
+	        left: ($anchorDims.offset.left + ($anchorDims.width / 2)) - ($eleDims.width / 2),
+	        top: $anchorDims.offset.top - ($eleDims.height + vOffset)
+	      }
+	      break;
+	    case 'center bottom':
+	      return {
+	        left: isOverflow ? hOffset : (($anchorDims.offset.left + ($anchorDims.width / 2)) - ($eleDims.width / 2)),
+	        top: $anchorDims.offset.top + $anchorDims.height + vOffset
+	      }
+	      break;
+	    case 'center left':
+	      return {
+	        left: $anchorDims.offset.left - ($eleDims.width + hOffset),
+	        top: ($anchorDims.offset.top + ($anchorDims.height / 2)) - ($eleDims.height / 2)
+	      }
+	      break;
+	    case 'center right':
+	      return {
+	        left: $anchorDims.offset.left + $anchorDims.width + hOffset + 1,
+	        top: ($anchorDims.offset.top + ($anchorDims.height / 2)) - ($eleDims.height / 2)
+	      }
+	      break;
+	    case 'center':
+	      return {
+	        left: ($eleDims.windowDims.offset.left + ($eleDims.windowDims.width / 2)) - ($eleDims.width / 2),
+	        top: ($eleDims.windowDims.offset.top + ($eleDims.windowDims.height / 2)) - ($eleDims.height / 2)
+	      }
+	      break;
+	    case 'reveal':
+	      return {
+	        left: ($eleDims.windowDims.width - $eleDims.width) / 2,
+	        top: $eleDims.windowDims.offset.top + vOffset
+	      }
+	    case 'reveal full':
+	      return {
+	        left: $eleDims.windowDims.offset.left,
+	        top: $eleDims.windowDims.offset.top
+	      }
+	      break;
+	    case 'left bottom':
+	      return {
+	        left: $anchorDims.offset.left - ($eleDims.width + hOffset),
+	        top: $anchorDims.offset.top + $anchorDims.height
+	      };
+	      break;
+	    case 'right bottom':
+	      return {
+	        left: $anchorDims.offset.left + $anchorDims.width + hOffset - $eleDims.width,
+	        top: $anchorDims.offset.top + $anchorDims.height
+	      };
+	      break;
+	    default:
+	      return {
+	        left: (Foundation.rtl() ? $anchorDims.offset.left - $eleDims.width + $anchorDims.width : $anchorDims.offset.left),
+	        top: $anchorDims.offset.top + $anchorDims.height + vOffset
+	      }
+	  }
+	}
+
+	}(jQuery);
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	!function($) {
+
+	const MutationObserver = (function () {
+	  var prefixes = ['WebKit', 'Moz', 'O', 'Ms', ''];
+	  for (var i=0; i < prefixes.length; i++) {
+	    if (`${prefixes[i]}MutationObserver` in window) {
+	      return window[`${prefixes[i]}MutationObserver`];
+	    }
+	  }
+	  return false;
+	}());
+
+	const triggers = (el, type) => {
+	  el.data(type).split(' ').forEach(id => {
+	    $(`#${id}`)[ type === 'close' ? 'trigger' : 'triggerHandler'](`${type}.zf.trigger`, [el]);
+	  });
+	};
+	// Elements with [data-open] will reveal a plugin that supports it when clicked.
+	$(document).on('click.zf.trigger', '[data-open]', function() {
+	  triggers($(this), 'open');
+	});
+
+	// Elements with [data-close] will close a plugin that supports it when clicked.
+	// If used without a value on [data-close], the event will bubble, allowing it to close a parent component.
+	$(document).on('click.zf.trigger', '[data-close]', function() {
+	  let id = $(this).data('close');
+	  if (id) {
+	    triggers($(this), 'close');
+	  }
+	  else {
+	    $(this).trigger('close.zf.trigger');
+	  }
+	});
+
+	// Elements with [data-toggle] will toggle a plugin that supports it when clicked.
+	$(document).on('click.zf.trigger', '[data-toggle]', function() {
+	  triggers($(this), 'toggle');
+	});
+
+	// Elements with [data-closable] will respond to close.zf.trigger events.
+	$(document).on('close.zf.trigger', '[data-closable]', function(e){
+	  e.stopPropagation();
+	  let animation = $(this).data('closable');
+
+	  if(animation !== ''){
+	    Foundation.Motion.animateOut($(this), animation, function() {
+	      $(this).trigger('closed.zf');
+	    });
+	  }else{
+	    $(this).fadeOut().trigger('closed.zf');
+	  }
+	});
+
+	$(document).on('focus.zf.trigger blur.zf.trigger', '[data-toggle-focus]', function() {
+	  let id = $(this).data('toggle-focus');
+	  $(`#${id}`).triggerHandler('toggle.zf.trigger', [$(this)]);
+	});
+
+	/**
+	* Fires once after all other scripts have loaded
+	* @function
+	* @private
+	*/
+	$(window).load(() => {
+	  checkListeners();
+	});
+
+	function checkListeners() {
+	  eventsListener();
+	  resizeListener();
+	  scrollListener();
+	  closemeListener();
+	}
+
+	//******** only fires this function once on load, if there's something to watch ********
+	function closemeListener(pluginName) {
+	  var yetiBoxes = $('[data-yeti-box]'),
+	      plugNames = ['dropdown', 'tooltip', 'reveal'];
+
+	  if(pluginName){
+	    if(typeof pluginName === 'string'){
+	      plugNames.push(pluginName);
+	    }else if(typeof pluginName === 'object' && typeof pluginName[0] === 'string'){
+	      plugNames.concat(pluginName);
+	    }else{
+	      console.error('Plugin names must be strings');
+	    }
+	  }
+	  if(yetiBoxes.length){
+	    let listeners = plugNames.map((name) => {
+	      return `closeme.zf.${name}`;
+	    }).join(' ');
+
+	    $(window).off(listeners).on(listeners, function(e, pluginId){
+	      let plugin = e.namespace.split('.')[0];
+	      let plugins = $(`[data-${plugin}]`).not(`[data-yeti-box="${pluginId}"]`);
+
+	      plugins.each(function(){
+	        let _this = $(this);
+
+	        _this.triggerHandler('close.zf.trigger', [_this]);
+	      });
+	    });
+	  }
+	}
+
+	function resizeListener(debounce){
+	  let timer,
+	      $nodes = $('[data-resize]');
+	  if($nodes.length){
+	    $(window).off('resize.zf.trigger')
+	    .on('resize.zf.trigger', function(e) {
+	      if (timer) { clearTimeout(timer); }
+
+	      timer = setTimeout(function(){
+
+	        if(!MutationObserver){//fallback for IE 9
+	          $nodes.each(function(){
+	            $(this).triggerHandler('resizeme.zf.trigger');
+	          });
+	        }
+	        //trigger all listening elements and signal a resize event
+	        $nodes.attr('data-events', "resize");
+	      }, debounce || 10);//default time to emit resize event
+	    });
+	  }
+	}
+
+	function scrollListener(debounce){
+	  let timer,
+	      $nodes = $('[data-scroll]');
+	  if($nodes.length){
+	    $(window).off('scroll.zf.trigger')
+	    .on('scroll.zf.trigger', function(e){
+	      if(timer){ clearTimeout(timer); }
+
+	      timer = setTimeout(function(){
+
+	        if(!MutationObserver){//fallback for IE 9
+	          $nodes.each(function(){
+	            $(this).triggerHandler('scrollme.zf.trigger');
+	          });
+	        }
+	        //trigger all listening elements and signal a scroll event
+	        $nodes.attr('data-events', "scroll");
+	      }, debounce || 10);//default time to emit scroll event
+	    });
+	  }
+	}
+
+	function eventsListener() {
+	  if(!MutationObserver){ return false; }
+	  let nodes = document.querySelectorAll('[data-resize], [data-scroll], [data-mutate]');
+
+	  //element callback
+	  var listeningElementsMutation = function(mutationRecordsList) {
+	    var $target = $(mutationRecordsList[0].target);
+	    //trigger the event handler for the element depending on type
+	    switch ($target.attr("data-events")) {
+
+	      case "resize" :
+	      $target.triggerHandler('resizeme.zf.trigger', [$target]);
+	      break;
+
+	      case "scroll" :
+	      $target.triggerHandler('scrollme.zf.trigger', [$target, window.pageYOffset]);
+	      break;
+
+	      // case "mutate" :
+	      // console.log('mutate', $target);
+	      // $target.triggerHandler('mutate.zf.trigger');
+	      //
+	      // //make sure we don't get stuck in an infinite loop from sloppy codeing
+	      // if ($target.index('[data-mutate]') == $("[data-mutate]").length-1) {
+	      //   domMutationObserver();
+	      // }
+	      // break;
+
+	      default :
+	      return false;
+	      //nothing
+	    }
+	  }
+
+	  if(nodes.length){
+	    //for each element that needs to listen for resizing, scrolling, (or coming soon mutation) add a single observer
+	    for (var i = 0; i <= nodes.length-1; i++) {
+	      let elementObserver = new MutationObserver(listeningElementsMutation);
+	      elementObserver.observe(nodes[i], { attributes: true, childList: false, characterData: false, subtree:false, attributeFilter:["data-events"]});
+	    }
+	  }
+	}
+
+	// ------------------------------------
+
+	// [PH]
+	// Foundation.CheckWatchers = checkWatchers;
+	Foundation.IHearYou = checkListeners;
+	// Foundation.ISeeYou = scrollListener;
+	// Foundation.IFeelYou = closemeListener;
+
+	}(jQuery);
+
+	// function domMutationObserver(debounce) {
+	//   // !!! This is coming soon and needs more work; not active  !!! //
+	//   var timer,
+	//   nodes = document.querySelectorAll('[data-mutate]');
+	//   //
+	//   if (nodes.length) {
+	//     // var MutationObserver = (function () {
+	//     //   var prefixes = ['WebKit', 'Moz', 'O', 'Ms', ''];
+	//     //   for (var i=0; i < prefixes.length; i++) {
+	//     //     if (prefixes[i] + 'MutationObserver' in window) {
+	//     //       return window[prefixes[i] + 'MutationObserver'];
+	//     //     }
+	//     //   }
+	//     //   return false;
+	//     // }());
+	//
+	//
+	//     //for the body, we need to listen for all changes effecting the style and class attributes
+	//     var bodyObserver = new MutationObserver(bodyMutation);
+	//     bodyObserver.observe(document.body, { attributes: true, childList: true, characterData: false, subtree:true, attributeFilter:["style", "class"]});
+	//
+	//
+	//     //body callback
+	//     function bodyMutation(mutate) {
+	//       //trigger all listening elements and signal a mutation event
+	//       if (timer) { clearTimeout(timer); }
+	//
+	//       timer = setTimeout(function() {
+	//         bodyObserver.disconnect();
+	//         $('[data-mutate]').attr('data-events',"mutate");
+	//       }, debounce || 150);
+	//     }
+	//   }
+	// }
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	!function($) {
+
+	/**
+	 * Dropdown module.
+	 * @module foundation.dropdown
+	 * @requires foundation.util.keyboard
+	 * @requires foundation.util.box
+	 * @requires foundation.util.triggers
+	 */
+
+	class Dropdown {
+	  /**
+	   * Creates a new instance of a dropdown.
+	   * @class
+	   * @param {jQuery} element - jQuery object to make into a dropdown.
+	   *        Object should be of the dropdown panel, rather than its anchor.
+	   * @param {Object} options - Overrides to the default plugin settings.
+	   */
+	  constructor(element, options) {
+	    this.$element = element;
+	    this.options = $.extend({}, Dropdown.defaults, this.$element.data(), options);
+	    this._init();
+
+	    Foundation.registerPlugin(this, 'Dropdown');
+	    Foundation.Keyboard.register('Dropdown', {
+	      'ENTER': 'open',
+	      'SPACE': 'open',
+	      'ESCAPE': 'close',
+	      'TAB': 'tab_forward',
+	      'SHIFT_TAB': 'tab_backward'
+	    });
+	  }
+
+	  /**
+	   * Initializes the plugin by setting/checking options and attributes, adding helper variables, and saving the anchor.
+	   * @function
+	   * @private
+	   */
+	  _init() {
+	    var $id = this.$element.attr('id');
+
+	    this.$anchor = $(`[data-toggle="${$id}"]`) || $(`[data-open="${$id}"]`);
+	    this.$anchor.attr({
+	      'aria-controls': $id,
+	      'data-is-focus': false,
+	      'data-yeti-box': $id,
+	      'aria-haspopup': true,
+	      'aria-expanded': false
+
+	    });
+
+	    this.options.positionClass = this.getPositionClass();
+	    this.counter = 4;
+	    this.usedPositions = [];
+	    this.$element.attr({
+	      'aria-hidden': 'true',
+	      'data-yeti-box': $id,
+	      'data-resize': $id,
+	      'aria-labelledby': this.$anchor[0].id || Foundation.GetYoDigits(6, 'dd-anchor')
+	    });
+	    this._events();
+	  }
+
+	  /**
+	   * Helper function to determine current orientation of dropdown pane.
+	   * @function
+	   * @returns {String} position - string value of a position class.
+	   */
+	  getPositionClass() {
+	    var verticalPosition = this.$element[0].className.match(/(top|left|right|bottom)/g);
+	        verticalPosition = verticalPosition ? verticalPosition[0] : '';
+	    var horizontalPosition = /float-(.+)\s/.exec(this.$anchor[0].className);
+	        horizontalPosition = horizontalPosition ? horizontalPosition[1] : '';
+	    var position = horizontalPosition ? horizontalPosition + ' ' + verticalPosition : verticalPosition;
+	    return position;
+	  }
+
+	  /**
+	   * Adjusts the dropdown panes orientation by adding/removing positioning classes.
+	   * @function
+	   * @private
+	   * @param {String} position - position class to remove.
+	   */
+	  _reposition(position) {
+	    this.usedPositions.push(position ? position : 'bottom');
+	    //default, try switching to opposite side
+	    if(!position && (this.usedPositions.indexOf('top') < 0)){
+	      this.$element.addClass('top');
+	    }else if(position === 'top' && (this.usedPositions.indexOf('bottom') < 0)){
+	      this.$element.removeClass(position);
+	    }else if(position === 'left' && (this.usedPositions.indexOf('right') < 0)){
+	      this.$element.removeClass(position)
+	          .addClass('right');
+	    }else if(position === 'right' && (this.usedPositions.indexOf('left') < 0)){
+	      this.$element.removeClass(position)
+	          .addClass('left');
+	    }
+
+	    //if default change didn't work, try bottom or left first
+	    else if(!position && (this.usedPositions.indexOf('top') > -1) && (this.usedPositions.indexOf('left') < 0)){
+	      this.$element.addClass('left');
+	    }else if(position === 'top' && (this.usedPositions.indexOf('bottom') > -1) && (this.usedPositions.indexOf('left') < 0)){
+	      this.$element.removeClass(position)
+	          .addClass('left');
+	    }else if(position === 'left' && (this.usedPositions.indexOf('right') > -1) && (this.usedPositions.indexOf('bottom') < 0)){
+	      this.$element.removeClass(position);
+	    }else if(position === 'right' && (this.usedPositions.indexOf('left') > -1) && (this.usedPositions.indexOf('bottom') < 0)){
+	      this.$element.removeClass(position);
+	    }
+	    //if nothing cleared, set to bottom
+	    else{
+	      this.$element.removeClass(position);
+	    }
+	    this.classChanged = true;
+	    this.counter--;
+	  }
+
+	  /**
+	   * Sets the position and orientation of the dropdown pane, checks for collisions.
+	   * Recursively calls itself if a collision is detected, with a new position class.
+	   * @function
+	   * @private
+	   */
+	  _setPosition() {
+	    if(this.$anchor.attr('aria-expanded') === 'false'){ return false; }
+	    var position = this.getPositionClass(),
+	        $eleDims = Foundation.Box.GetDimensions(this.$element),
+	        $anchorDims = Foundation.Box.GetDimensions(this.$anchor),
+	        _this = this,
+	        direction = (position === 'left' ? 'left' : ((position === 'right') ? 'left' : 'top')),
+	        param = (direction === 'top') ? 'height' : 'width',
+	        offset = (param === 'height') ? this.options.vOffset : this.options.hOffset;
+
+
+
+	    if(($eleDims.width >= $eleDims.windowDims.width) || (!this.counter && !Foundation.Box.ImNotTouchingYou(this.$element))){
+	      this.$element.offset(Foundation.Box.GetOffsets(this.$element, this.$anchor, 'center bottom', this.options.vOffset, this.options.hOffset, true)).css({
+	        'width': $eleDims.windowDims.width - (this.options.hOffset * 2),
+	        'height': 'auto'
+	      });
+	      this.classChanged = true;
+	      return false;
+	    }
+
+	    this.$element.offset(Foundation.Box.GetOffsets(this.$element, this.$anchor, position, this.options.vOffset, this.options.hOffset));
+
+	    while(!Foundation.Box.ImNotTouchingYou(this.$element, false, true) && this.counter){
+	      this._reposition(position);
+	      this._setPosition();
+	    }
+	  }
+
+	  /**
+	   * Adds event listeners to the element utilizing the triggers utility library.
+	   * @function
+	   * @private
+	   */
+	  _events() {
+	    var _this = this;
+	    this.$element.on({
+	      'open.zf.trigger': this.open.bind(this),
+	      'close.zf.trigger': this.close.bind(this),
+	      'toggle.zf.trigger': this.toggle.bind(this),
+	      'resizeme.zf.trigger': this._setPosition.bind(this)
+	    });
+
+	    if(this.options.hover){
+	      this.$anchor.off('mouseenter.zf.dropdown mouseleave.zf.dropdown')
+	          .on('mouseenter.zf.dropdown', function(){
+	            clearTimeout(_this.timeout);
+	            _this.timeout = setTimeout(function(){
+	              _this.open();
+	              _this.$anchor.data('hover', true);
+	            }, _this.options.hoverDelay);
+	          }).on('mouseleave.zf.dropdown', function(){
+	            clearTimeout(_this.timeout);
+	            _this.timeout = setTimeout(function(){
+	              _this.close();
+	              _this.$anchor.data('hover', false);
+	            }, _this.options.hoverDelay);
+	          });
+	      if(this.options.hoverPane){
+	        this.$element.off('mouseenter.zf.dropdown mouseleave.zf.dropdown')
+	            .on('mouseenter.zf.dropdown', function(){
+	              clearTimeout(_this.timeout);
+	            }).on('mouseleave.zf.dropdown', function(){
+	              clearTimeout(_this.timeout);
+	              _this.timeout = setTimeout(function(){
+	                _this.close();
+	                _this.$anchor.data('hover', false);
+	              }, _this.options.hoverDelay);
+	            });
+	      }
+	    }
+	    this.$anchor.add(this.$element).on('keydown.zf.dropdown', function(e) {
+
+	      var $target = $(this),
+	        visibleFocusableElements = Foundation.Keyboard.findFocusable(_this.$element);
+
+	      Foundation.Keyboard.handleKey(e, 'Dropdown', {
+	        tab_forward: function() {
+	          if (_this.$element.find(':focus').is(visibleFocusableElements.eq(-1))) { // left modal downwards, setting focus to first element
+	            if (_this.options.trapFocus) { // if focus shall be trapped
+	              visibleFocusableElements.eq(0).focus();
+	              e.preventDefault();
+	            } else { // if focus is not trapped, close dropdown on focus out
+	              _this.close();
+	            }
+	          }
+	        },
+	        tab_backward: function() {
+	          if (_this.$element.find(':focus').is(visibleFocusableElements.eq(0)) || _this.$element.is(':focus')) { // left modal upwards, setting focus to last element
+	            if (_this.options.trapFocus) { // if focus shall be trapped
+	              visibleFocusableElements.eq(-1).focus();
+	              e.preventDefault();
+	            } else { // if focus is not trapped, close dropdown on focus out
+	              _this.close();
+	            }
+	          }
+	        },
+	        open: function() {
+	          if ($target.is(_this.$anchor)) {
+	            _this.open();
+	            _this.$element.attr('tabindex', -1).focus();
+	            e.preventDefault();
+	          }
+	        },
+	        close: function() {
+	          _this.close();
+	          _this.$anchor.focus();
+	        }
+	      });
+	    });
+	  }
+
+	  /**
+	   * Adds an event handler to the body to close any dropdowns on a click.
+	   * @function
+	   * @private
+	   */
+	  _addBodyHandler() {
+	     var $body = $(document.body).not(this.$element),
+	         _this = this;
+	     $body.off('click.zf.dropdown')
+	          .on('click.zf.dropdown', function(e){
+	            if(_this.$anchor.is(e.target) || _this.$anchor.find(e.target).length) {
+	              return;
+	            }
+	            if(_this.$element.find(e.target).length) {
+	              return;
+	            }
+	            _this.close();
+	            $body.off('click.zf.dropdown');
+	          });
+	  }
+
+	  /**
+	   * Opens the dropdown pane, and fires a bubbling event to close other dropdowns.
+	   * @function
+	   * @fires Dropdown#closeme
+	   * @fires Dropdown#show
+	   */
+	  open() {
+	    // var _this = this;
+	    /**
+	     * Fires to close other open dropdowns
+	     * @event Dropdown#closeme
+	     */
+	    this.$element.trigger('closeme.zf.dropdown', this.$element.attr('id'));
+	    this.$anchor.addClass('hover')
+	        .attr({'aria-expanded': true});
+	    // this.$element/*.show()*/;
+	    this._setPosition();
+	    this.$element.addClass('is-open')
+	        .attr({'aria-hidden': false});
+
+	    if(this.options.autoFocus){
+	      var $focusable = Foundation.Keyboard.findFocusable(this.$element);
+	      if($focusable.length){
+	        $focusable.eq(0).focus();
+	      }
+	    }
+
+	    if(this.options.closeOnClick){ this._addBodyHandler(); }
+
+	    /**
+	     * Fires once the dropdown is visible.
+	     * @event Dropdown#show
+	     */
+	    this.$element.trigger('show.zf.dropdown', [this.$element]);
+	  }
+
+	  /**
+	   * Closes the open dropdown pane.
+	   * @function
+	   * @fires Dropdown#hide
+	   */
+	  close() {
+	    if(!this.$element.hasClass('is-open')){
+	      return false;
+	    }
+	    this.$element.removeClass('is-open')
+	        .attr({'aria-hidden': true});
+
+	    this.$anchor.removeClass('hover')
+	        .attr('aria-expanded', false);
+
+	    if(this.classChanged){
+	      var curPositionClass = this.getPositionClass();
+	      if(curPositionClass){
+	        this.$element.removeClass(curPositionClass);
+	      }
+	      this.$element.addClass(this.options.positionClass)
+	          /*.hide()*/.css({height: '', width: ''});
+	      this.classChanged = false;
+	      this.counter = 4;
+	      this.usedPositions.length = 0;
+	    }
+	    this.$element.trigger('hide.zf.dropdown', [this.$element]);
+	  }
+
+	  /**
+	   * Toggles the dropdown pane's visibility.
+	   * @function
+	   */
+	  toggle() {
+	    if(this.$element.hasClass('is-open')){
+	      if(this.$anchor.data('hover')) return;
+	      this.close();
+	    }else{
+	      this.open();
+	    }
+	  }
+
+	  /**
+	   * Destroys the dropdown.
+	   * @function
+	   */
+	  destroy() {
+	    this.$element.off('.zf.trigger').hide();
+	    this.$anchor.off('.zf.dropdown');
+
+	    Foundation.unregisterPlugin(this);
+	  }
+	}
+
+	Dropdown.defaults = {
+	  /**
+	   * Amount of time to delay opening a submenu on hover event.
+	   * @option
+	   * @example 250
+	   */
+	  hoverDelay: 250,
+	  /**
+	   * Allow submenus to open on hover events
+	   * @option
+	   * @example false
+	   */
+	  hover: false,
+	  /**
+	   * Don't close dropdown when hovering over dropdown pane
+	   * @option
+	   * @example true
+	   */
+	  hoverPane: false,
+	  /**
+	   * Number of pixels between the dropdown pane and the triggering element on open.
+	   * @option
+	   * @example 1
+	   */
+	  vOffset: 1,
+	  /**
+	   * Number of pixels between the dropdown pane and the triggering element on open.
+	   * @option
+	   * @example 1
+	   */
+	  hOffset: 1,
+	  /**
+	   * Class applied to adjust open position. JS will test and fill this in.
+	   * @option
+	   * @example 'top'
+	   */
+	  positionClass: '',
+	  /**
+	   * Allow the plugin to trap focus to the dropdown pane if opened with keyboard commands.
+	   * @option
+	   * @example false
+	   */
+	  trapFocus: false,
+	  /**
+	   * Allow the plugin to set focus to the first focusable element within the pane, regardless of method of opening.
+	   * @option
+	   * @example true
+	   */
+	  autoFocus: false,
+	  /**
+	   * Allows a click on the body to close the dropdown.
+	   * @option
+	   * @example false
+	   */
+	  closeOnClick: false
+	}
+
+	// Window exports
+	Foundation.plugin(Dropdown, 'Dropdown');
+
+	}(jQuery);
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	!function($) {
+
 	/**
 	 * Accordion module.
 	 * @module foundation.accordion
@@ -2654,7 +3857,7 @@
 
 
 /***/ },
-/* 6 */
+/* 11 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3218,7 +4421,7 @@
 
 
 /***/ },
-/* 7 */
+/* 12 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3751,7 +4954,7 @@
 
 
 /***/ },
-/* 8 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';

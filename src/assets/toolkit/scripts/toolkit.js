@@ -11,12 +11,17 @@
 // For Bower Components
 // Because Bower does not force a module structure, you have use a more specific path.
 
-// we're now requiring it from the node_modules directory
+// we're now requiring it from the bower/vendor directory
 var $ = require('../../vendor/jquery/dist/jquery.min.js');
 window.jQuery = $;
 
-// Loading foundation from bower in order to support modernizr module
+// Loading foundation from node
 var foundation = require('foundation-sites/js/foundation.core.js');
+var foundationMediaQuery = require('foundation-sites/js/foundation.util.mediaQuery.js');
+var foundationKeyboard = require('foundation-sites/js/foundation.util.keyboard.js');
+var foundationBox = require('foundation-sites/js/foundation.util.box.js');
+var foundationTriggers = require('foundation-sites/js/foundation.util.triggers.js');
+var foundationDropdown = require('foundation-sites/js/foundation.dropdown.js');
 var foundationAccordion = require('foundation-sites/js/foundation.accordion.js');
 var foundationReveal = require('foundation-sites/js/foundation.reveal.js');
 var foundationAbide = require('foundation-sites/js/foundation.abide.js');
