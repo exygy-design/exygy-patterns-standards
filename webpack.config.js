@@ -19,7 +19,11 @@ module.exports = function(fabricatorConfig) {
         {
           test: /\.js$/,
           exclude: /(node_modules|prism\.js)/,
-          loaders: ['babel-loader']
+          loader: 'babel',
+          query: {
+            presets: ['es2015'],
+            compact: true
+          }
         }
       ]
     },
