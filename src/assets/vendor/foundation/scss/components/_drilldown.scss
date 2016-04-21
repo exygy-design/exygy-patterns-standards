@@ -27,10 +27,6 @@ $drilldown-background: $white !default;
   .is-drilldown {
     position: relative;
     overflow: hidden;
-
-    li {
-      display: block !important;
-    }
   }
 
   // Applied to nested <ul>s

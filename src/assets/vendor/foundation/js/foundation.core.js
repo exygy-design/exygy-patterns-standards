@@ -1,8 +1,7 @@
 !function($) {
-
 "use strict";
 
-var FOUNDATION_VERSION = '6.2.1';
+var FOUNDATION_VERSION = '6.1.2';
 
 // Global Foundation object
 // This is attached to the window, or used as a module for AMD/Browserify
@@ -53,13 +52,13 @@ var Foundation = {
     var pluginName = name ? hyphenate(name) : functionName(plugin.constructor).toLowerCase();
     plugin.uuid = this.GetYoDigits(6, pluginName);
 
-    if(!plugin.$element.attr(`data-${pluginName}`)){ plugin.$element.attr(`data-${pluginName}`, plugin.uuid); }
+    if(!plugin.$element.attr('data-' + pluginName)){ plugin.$element.attr('data-' + pluginName, plugin.uuid); }
     if(!plugin.$element.data('zfPlugin')){ plugin.$element.data('zfPlugin', plugin); }
           /**
            * Fires when the plugin has initialized.
            * @event Plugin#init
            */
-    plugin.$element.trigger(`init.zf.${pluginName}`);
+    plugin.$element.trigger('init.zf.' + pluginName);
 
     this._uuids.push(plugin.uuid);
 
@@ -77,12 +76,12 @@ var Foundation = {
     var pluginName = hyphenate(functionName(plugin.$element.data('zfPlugin').constructor));
 
     this._uuids.splice(this._uuids.indexOf(plugin.uuid), 1);
-    plugin.$element.removeAttr(`data-${pluginName}`).removeData('zfPlugin')
+    plugin.$element.removeAttr('data-' + pluginName).removeData('zfPlugin')
           /**
            * Fires when the plugin has been destroyed.
            * @event Plugin#destroyed
            */
-          .trigger(`destroyed.zf.${pluginName}`);
+          .trigger('destroyed.zf.' + pluginName);
     for(var prop in plugin){
       plugin[prop] = null;//clean up script to prep for garbage collection.
     }
@@ -108,12 +107,10 @@ var Foundation = {
          fns = {
            'object': function(plgs){
              plgs.forEach(function(p){
-               p = hyphenate(p);
                $('[data-'+ p +']').foundation('_init');
              });
            },
            'string': function(){
-             plugins = hyphenate(plugins);
              $('[data-'+ plugins +']').foundation('_init');
            },
            'undefined': function(){
@@ -139,7 +136,7 @@ var Foundation = {
    */
   GetYoDigits: function(length, namespace){
     length = length || 6;
-    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1) + (namespace ? `-${namespace}` : '');
+    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1) + (namespace ? '-' + namespace : '');
   },
   /**
    * Initialize plugins on any elements within `elem` (and `elem` itself) that aren't already initialized.
@@ -220,6 +217,7 @@ var Foundation = {
   }
 };
 
+
 Foundation.util = {
   /**
    * Function for applying a debounce effect to a function call.
@@ -281,7 +279,7 @@ var foundation = function(method) {
       throw new ReferenceError("We're sorry, '" + method + "' is not an available method for " + (plugClass ? functionName(plugClass) : 'this element') + '.');
     }
   }else{//error for invalid argument type
-    throw new TypeError(`We're sorry, ${type} is not a valid parameter. You must use a string representing the method you wish to invoke.`);
+    throw new TypeError("We're sorry, '" + type + "' is not a valid parameter. You must use a string representing the method you wish to invoke.");
   }
   return this;
 };

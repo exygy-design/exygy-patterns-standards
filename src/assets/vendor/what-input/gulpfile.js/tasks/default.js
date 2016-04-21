@@ -1,12 +1,14 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
+var server = require('gulp-server-livereload');
+
 
 gulp.task('default', ['clean', 'scripts'], function() {
-  browserSync.init({
-    server: {
-      baseDir: './'
-    }
-  });
+  gulp.src('./')
+    .pipe(server({
+      defaultFile: 'demo.html',
+      livereload: true,
+      open: true
+  }));
 
-  gulp.watch(['./what-input.js', './polyfills/*.js'], ['scripts']).on('change', browserSync.reload);
+  gulp.watch(['./what-input.js', './polyfills/*.js'], ['scripts']);
 });

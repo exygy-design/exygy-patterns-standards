@@ -1,7 +1,3 @@
-'use strict';
-
-!function($) {
-
 /**
  * Dropdown module.
  * @module foundation.dropdown
@@ -9,8 +5,8 @@
  * @requires foundation.util.box
  * @requires foundation.util.triggers
  */
-
-class Dropdown {
+!function($, Foundation){
+  'use strict';
   /**
    * Creates a new instance of a dropdown.
    * @class
@@ -18,7 +14,7 @@ class Dropdown {
    *        Object should be of the dropdown panel, rather than its anchor.
    * @param {Object} options - Overrides to the default plugin settings.
    */
-  constructor(element, options) {
+  function Dropdown(element, options){
     this.$element = element;
     this.options = $.extend({}, Dropdown.defaults, this.$element.data(), options);
     this._init();
@@ -33,22 +29,78 @@ class Dropdown {
     });
   }
 
+  Dropdown.defaults = {
+    /**
+     * Amount of time to delay opening a submenu on hover event.
+     * @option
+     * @example 250
+     */
+    hoverDelay: 250,
+    /**
+     * Allow submenus to open on hover events
+     * @option
+     * @example false
+     */
+    hover: false,
+    /**
+     * Don't close dropdown when hovering over dropdown pane
+     * @option
+     * @example true
+     */
+    hoverPane: false,
+    /**
+     * Number of pixels between the dropdown pane and the triggering element on open.
+     * @option
+     * @example 1
+     */
+    vOffset: 1,
+    /**
+     * Number of pixels between the dropdown pane and the triggering element on open.
+     * @option
+     * @example 1
+     */
+    hOffset: 1,
+    /**
+     * Class applied to adjust open position. JS will test and fill this in.
+     * @option
+     * @example 'top'
+     */
+    positionClass: '',
+    /**
+     * Allow the plugin to trap focus to the dropdown pane if opened with keyboard commands.
+     * @option
+     * @example false
+     */
+    trapFocus: false,
+    /**
+     * Allow the plugin to set focus to the first focusable element within the pane, regardless of method of opening.
+     * @option
+     * @example true
+     */
+    autoFocus: false,
+    /**
+     * Allows a click on the body to close the dropdown.
+     * @option
+     * @example false
+     */
+    closeOnClick: false
+  };
   /**
    * Initializes the plugin by setting/checking options and attributes, adding helper variables, and saving the anchor.
    * @function
    * @private
    */
-  _init() {
+  Dropdown.prototype._init = function(){
     var $id = this.$element.attr('id');
 
-    this.$anchor = $(`[data-toggle="${$id}"]`) || $(`[data-open="${$id}"]`);
+    this.$anchor = $('[data-toggle="' + $id + '"]') || $('[data-open="' + $id + '"]');
     this.$anchor.attr({
       'aria-controls': $id,
       'data-is-focus': false,
       'data-yeti-box': $id,
       'aria-haspopup': true,
       'aria-expanded': false
-
+      // 'data-resize': $id
     });
 
     this.options.positionClass = this.getPositionClass();
@@ -61,29 +113,24 @@ class Dropdown {
       'aria-labelledby': this.$anchor[0].id || Foundation.GetYoDigits(6, 'dd-anchor')
     });
     this._events();
-  }
-
+  };
   /**
    * Helper function to determine current orientation of dropdown pane.
    * @function
    * @returns {String} position - string value of a position class.
    */
-  getPositionClass() {
-    var verticalPosition = this.$element[0].className.match(/(top|left|right|bottom)/g);
-        verticalPosition = verticalPosition ? verticalPosition[0] : '';
-    var horizontalPosition = /float-(.+)\s/.exec(this.$anchor[0].className);
-        horizontalPosition = horizontalPosition ? horizontalPosition[1] : '';
-    var position = horizontalPosition ? horizontalPosition + ' ' + verticalPosition : verticalPosition;
+  Dropdown.prototype.getPositionClass = function(){
+    var position = this.$element[0].className.match(/\b(top|left|right)\b/g);
+        position = position ? position[0] : '';
     return position;
-  }
-
+  };
   /**
    * Adjusts the dropdown panes orientation by adding/removing positioning classes.
    * @function
    * @private
    * @param {String} position - position class to remove.
    */
-  _reposition(position) {
+  Dropdown.prototype._reposition = function(position){
     this.usedPositions.push(position ? position : 'bottom');
     //default, try switching to opposite side
     if(!position && (this.usedPositions.indexOf('top') < 0)){
@@ -115,15 +162,14 @@ class Dropdown {
     }
     this.classChanged = true;
     this.counter--;
-  }
-
+  };
   /**
    * Sets the position and orientation of the dropdown pane, checks for collisions.
    * Recursively calls itself if a collision is detected, with a new position class.
    * @function
    * @private
    */
-  _setPosition() {
+  Dropdown.prototype._setPosition = function(){
     if(this.$anchor.attr('aria-expanded') === 'false'){ return false; }
     var position = this.getPositionClass(),
         $eleDims = Foundation.Box.GetDimensions(this.$element),
@@ -132,8 +178,6 @@ class Dropdown {
         direction = (position === 'left' ? 'left' : ((position === 'right') ? 'left' : 'top')),
         param = (direction === 'top') ? 'height' : 'width',
         offset = (param === 'height') ? this.options.vOffset : this.options.hOffset;
-
-
 
     if(($eleDims.width >= $eleDims.windowDims.width) || (!this.counter && !Foundation.Box.ImNotTouchingYou(this.$element))){
       this.$element.offset(Foundation.Box.GetOffsets(this.$element, this.$anchor, 'center bottom', this.options.vOffset, this.options.hOffset, true)).css({
@@ -146,18 +190,17 @@ class Dropdown {
 
     this.$element.offset(Foundation.Box.GetOffsets(this.$element, this.$anchor, position, this.options.vOffset, this.options.hOffset));
 
-    while(!Foundation.Box.ImNotTouchingYou(this.$element, false, true) && this.counter){
+    while(!Foundation.Box.ImNotTouchingYou(this.$element) && this.counter){
       this._reposition(position);
       this._setPosition();
     }
-  }
-
+  };
   /**
    * Adds event listeners to the element utilizing the triggers utility library.
    * @function
    * @private
    */
-  _events() {
+  Dropdown.prototype._events = function(){
     var _this = this;
     this.$element.on({
       'open.zf.trigger': this.open.bind(this),
@@ -233,14 +276,13 @@ class Dropdown {
         }
       });
     });
-  }
-
+  };
   /**
    * Adds an event handler to the body to close any dropdowns on a click.
    * @function
    * @private
    */
-  _addBodyHandler() {
+  Dropdown.prototype._addBodyHandler = function(){
      var $body = $(document.body).not(this.$element),
          _this = this;
      $body.off('click.zf.dropdown')
@@ -254,15 +296,14 @@ class Dropdown {
             _this.close();
             $body.off('click.zf.dropdown');
           });
-  }
-
+  };
   /**
    * Opens the dropdown pane, and fires a bubbling event to close other dropdowns.
    * @function
    * @fires Dropdown#closeme
    * @fires Dropdown#show
    */
-  open() {
+  Dropdown.prototype.open = function(){
     // var _this = this;
     /**
      * Fires to close other open dropdowns
@@ -289,15 +330,18 @@ class Dropdown {
      * Fires once the dropdown is visible.
      * @event Dropdown#show
      */
-    this.$element.trigger('show.zf.dropdown', [this.$element]);
-  }
+     this.$element.trigger('show.zf.dropdown', [this.$element]);
+    //why does this not work correctly for this plugin?
+    // Foundation.reflow(this.$element, 'dropdown');
+    // Foundation._reflow(this.$element.attr('data-dropdown'));
+  };
 
   /**
    * Closes the open dropdown pane.
    * @function
    * @fires Dropdown#hide
    */
-  close() {
+  Dropdown.prototype.close = function(){
     if(!this.$element.hasClass('is-open')){
       return false;
     }
@@ -319,91 +363,30 @@ class Dropdown {
       this.usedPositions.length = 0;
     }
     this.$element.trigger('hide.zf.dropdown', [this.$element]);
-  }
-
+    // Foundation.reflow(this.$element, 'dropdown');
+  };
   /**
    * Toggles the dropdown pane's visibility.
    * @function
    */
-  toggle() {
+  Dropdown.prototype.toggle = function(){
     if(this.$element.hasClass('is-open')){
       if(this.$anchor.data('hover')) return;
       this.close();
     }else{
       this.open();
     }
-  }
-
+  };
   /**
    * Destroys the dropdown.
    * @function
    */
-  destroy() {
+  Dropdown.prototype.destroy = function(){
     this.$element.off('.zf.trigger').hide();
     this.$anchor.off('.zf.dropdown');
 
     Foundation.unregisterPlugin(this);
-  }
-}
+  };
 
-Dropdown.defaults = {
-  /**
-   * Amount of time to delay opening a submenu on hover event.
-   * @option
-   * @example 250
-   */
-  hoverDelay: 250,
-  /**
-   * Allow submenus to open on hover events
-   * @option
-   * @example false
-   */
-  hover: false,
-  /**
-   * Don't close dropdown when hovering over dropdown pane
-   * @option
-   * @example true
-   */
-  hoverPane: false,
-  /**
-   * Number of pixels between the dropdown pane and the triggering element on open.
-   * @option
-   * @example 1
-   */
-  vOffset: 1,
-  /**
-   * Number of pixels between the dropdown pane and the triggering element on open.
-   * @option
-   * @example 1
-   */
-  hOffset: 1,
-  /**
-   * Class applied to adjust open position. JS will test and fill this in.
-   * @option
-   * @example 'top'
-   */
-  positionClass: '',
-  /**
-   * Allow the plugin to trap focus to the dropdown pane if opened with keyboard commands.
-   * @option
-   * @example false
-   */
-  trapFocus: false,
-  /**
-   * Allow the plugin to set focus to the first focusable element within the pane, regardless of method of opening.
-   * @option
-   * @example true
-   */
-  autoFocus: false,
-  /**
-   * Allows a click on the body to close the dropdown.
-   * @option
-   * @example false
-   */
-  closeOnClick: false
-}
-
-// Window exports
-Foundation.plugin(Dropdown, 'Dropdown');
-
-}(jQuery);
+  Foundation.plugin(Dropdown, 'Dropdown');
+}(jQuery, window.Foundation);
