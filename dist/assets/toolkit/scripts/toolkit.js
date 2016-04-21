@@ -87,12 +87,7 @@
 	// Finally, you can drop test JavaScript here...
 	$(document).ready(function () {
 	  //console.log('Script kiddies of the world unite.')
-	  $(document).foundation({
-	    equalizer: {
-	      // Specify if Equalizer should make elements equal height once they become stacked.
-	      equalize_on_stack: true
-	    }
-	  });
+	  $(document).foundation();
 
 	  $("body").on("click", ".toggler", function () {
 	    $(".toggled").toggle(); /*shows or hides #box*/
