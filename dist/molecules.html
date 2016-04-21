@@ -427,24 +427,18 @@
 				</div>
 			</div>
 <div class="f-item-preview">
-	<ul class="button-group round even-6">
-	<li><a href="#" class="button">Button 1</a></li>
-	<li><a href="#" class="button">Button 2</a></li>
-	<li><a href="#" class="button">Button 3</a></li>
-	<li><a href="#" class="button">Button 4</a></li>
-	<li><a href="#" class="button">Button 5</a></li>
-	<li><a href="#" class="button">Button 6</a></li>
-</ul>
+	<div class="button-group">
+	<a class="button">One</a>
+	<a class="button">Two</a>
+	<a class="button">Three</a>
+</div>
 </div>
 <div class="f-item-code f-item-hidden" data-f-toggle="code">
-	<pre><code class="language-markup">&lt;ul class=&quot;button-group round even-6&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button 1&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button 2&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button 3&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button 4&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button 5&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Button 6&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+	<pre><code class="language-markup">&lt;div class=&quot;button-group&quot;&gt;
+	&lt;a class=&quot;button&quot;&gt;One&lt;/a&gt;
+	&lt;a class=&quot;button&quot;&gt;Two&lt;/a&gt;
+	&lt;a class=&quot;button&quot;&gt;Three&lt;/a&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
 		</div>
@@ -551,10 +545,16 @@
 				</div>
 			</div>
 <div class="f-item-preview">
-	<span data-tooltip aria-haspopup="true" class="has-tip" title="Tooltips are awesome, you should totally use them!">extended information</span>
+	<p>
+	The <span data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Fancy word for a beetle.">scarabaeus</span> hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately
+	took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.
+</p>
 </div>
 <div class="f-item-code f-item-hidden" data-f-toggle="code">
-	<pre><code class="language-markup">&lt;span data-tooltip aria-haspopup=&quot;true&quot; class=&quot;has-tip&quot; title=&quot;Tooltips are awesome, you should totally use them!&quot;&gt;extended information&lt;/span&gt;</code></pre>
+	<pre><code class="language-markup">&lt;p&gt;
+	The &lt;span data-tooltip aria-haspopup=&quot;true&quot; class=&quot;has-tip&quot; data-disable-hover=&quot;false&quot; tabindex=&quot;1&quot; title=&quot;Fancy word for a beetle.&quot;&gt;scarabaeus&lt;/span&gt; hung quite clear of any branches, and, if allowed to fall, would have fallen at our feet. Legrand immediately
+	took the scythe, and cleared with it a circular space, three or four yards in diameter, just beneath the insect, and, having accomplished this, ordered Jupiter to let go the string and come down from the tree.
+&lt;/p&gt;</code></pre>
 </div>
 
 		</div>
@@ -582,63 +582,14 @@
 <div class="f-item-preview">
 	<form>
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="medium-6 columns">
 			<label>Input Label
-        <input type="text" placeholder="large-12.columns" />
+        <input type="text" placeholder=".medium-6.columns">
       </label>
 		</div>
-	</div>
-	<div class="row">
-		<div class="large-4 columns">
+		<div class="medium-6 columns">
 			<label>Input Label
-        <input type="text" placeholder="large-4.columns" />
-      </label>
-		</div>
-		<div class="large-4 columns">
-			<label>Input Label
-        <input type="text" placeholder="large-4.columns" />
-      </label>
-		</div>
-		<div class="large-4 columns">
-			<div class="row collapse">
-				<label>Input Label</label>
-				<div class="small-9 columns">
-					<input type="text" placeholder="small-9.columns" />
-				</div>
-				<div class="small-3 columns">
-					<span class="postfix">.com</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns">
-			<label>Select Box
-        <select>
-          <option value="husker">Husker</option>
-          <option value="starbuck">Starbuck</option>
-          <option value="hotdog">Hot Dog</option>
-          <option value="apollo">Apollo</option>
-        </select>
-      </label>
-		</div>
-	</div>
-	<div class="row">
-		<div class="large-6 columns">
-			<label>Choose Your Favorite</label>
-			<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
-			<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
-		</div>
-		<div class="large-6 columns">
-			<label>Check these out</label>
-			<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-			<input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-		</div>
-	</div>
-	<div class="row">
-		<div class="large-12 columns">
-			<label>Textarea Label
-        <textarea placeholder="small-12.columns"></textarea>
+        <input type="text" placeholder=".medium-6.columns">
       </label>
 		</div>
 	</div>
@@ -647,63 +598,14 @@
 <div class="f-item-code f-item-hidden" data-f-toggle="code">
 	<pre><code class="language-markup">&lt;form&gt;
 	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;large-12 columns&quot;&gt;
+		&lt;div class=&quot;medium-6 columns&quot;&gt;
 			&lt;label&gt;Input Label
-        &lt;input type=&quot;text&quot; placeholder=&quot;large-12.columns&quot; /&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;.medium-6.columns&quot;&gt;
       &lt;/label&gt;
 		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;large-4 columns&quot;&gt;
+		&lt;div class=&quot;medium-6 columns&quot;&gt;
 			&lt;label&gt;Input Label
-        &lt;input type=&quot;text&quot; placeholder=&quot;large-4.columns&quot; /&gt;
-      &lt;/label&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;large-4 columns&quot;&gt;
-			&lt;label&gt;Input Label
-        &lt;input type=&quot;text&quot; placeholder=&quot;large-4.columns&quot; /&gt;
-      &lt;/label&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;large-4 columns&quot;&gt;
-			&lt;div class=&quot;row collapse&quot;&gt;
-				&lt;label&gt;Input Label&lt;/label&gt;
-				&lt;div class=&quot;small-9 columns&quot;&gt;
-					&lt;input type=&quot;text&quot; placeholder=&quot;small-9.columns&quot; /&gt;
-				&lt;/div&gt;
-				&lt;div class=&quot;small-3 columns&quot;&gt;
-					&lt;span class=&quot;postfix&quot;&gt;.com&lt;/span&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;large-12 columns&quot;&gt;
-			&lt;label&gt;Select Box
-        &lt;select&gt;
-          &lt;option value=&quot;husker&quot;&gt;Husker&lt;/option&gt;
-          &lt;option value=&quot;starbuck&quot;&gt;Starbuck&lt;/option&gt;
-          &lt;option value=&quot;hotdog&quot;&gt;Hot Dog&lt;/option&gt;
-          &lt;option value=&quot;apollo&quot;&gt;Apollo&lt;/option&gt;
-        &lt;/select&gt;
-      &lt;/label&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;large-6 columns&quot;&gt;
-			&lt;label&gt;Choose Your Favorite&lt;/label&gt;
-			&lt;input type=&quot;radio&quot; name=&quot;pokemon&quot; value=&quot;Red&quot; id=&quot;pokemonRed&quot;&gt;&lt;label for=&quot;pokemonRed&quot;&gt;Red&lt;/label&gt;
-			&lt;input type=&quot;radio&quot; name=&quot;pokemon&quot; value=&quot;Blue&quot; id=&quot;pokemonBlue&quot;&gt;&lt;label for=&quot;pokemonBlue&quot;&gt;Blue&lt;/label&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;large-6 columns&quot;&gt;
-			&lt;label&gt;Check these out&lt;/label&gt;
-			&lt;input id=&quot;checkbox1&quot; type=&quot;checkbox&quot;&gt;&lt;label for=&quot;checkbox1&quot;&gt;Checkbox 1&lt;/label&gt;
-			&lt;input id=&quot;checkbox2&quot; type=&quot;checkbox&quot;&gt;&lt;label for=&quot;checkbox2&quot;&gt;Checkbox 2&lt;/label&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;large-12 columns&quot;&gt;
-			&lt;label&gt;Textarea Label
-        &lt;textarea placeholder=&quot;small-12.columns&quot;&gt;&lt;/textarea&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;.medium-6.columns&quot;&gt;
       &lt;/label&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -944,63 +846,39 @@
 				</div>
 			</div>
 <div class="f-item-preview">
-	<nav class="top-bar" data-topbar role="navigation">
-	<ul class="title-area">
-		<li class="name">
-			<h1><a href="#">My Site</a></h1>
-		</li>
-		<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-		<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-	</ul>
-
-	<section class="top-bar-section">
-		<!-- Right Nav Section -->
-		<ul class="right">
-			<li class="active"><a href="#">Right Button Active</a></li>
-			<li class="has-dropdown">
-				<a href="#">Right Button Dropdown</a>
-				<ul class="dropdown">
-					<li><a href="#">First link in dropdown</a></li>
-					<li class="active"><a href="#">Active link in dropdown</a></li>
-				</ul>
-			</li>
+	<nav class="top-bar">
+	<div class="top-bar-left">
+		<ul class="dropdown menu" data-dropdown-menu>
+			<li class="menu-text">Site Title</li>
+			<li><a href="#">One</a></li>
+			<li><a href="#">Two</a></li>
+			<li><a href="#">Three</a></li>
 		</ul>
-
-		<!-- Left Nav Section -->
-		<ul class="left">
-			<li><a href="#">Left Nav Button</a></li>
+	</div>
+	<div class="top-bar-right">
+		<ul class="menu">
+			<li><input type="search" placeholder="Search"></li>
+			<li><button type="button" class="button">Search</button></li>
 		</ul>
-	</section>
+	</div>
 </nav>
 </div>
 <div class="f-item-code f-item-hidden" data-f-toggle="code">
-	<pre><code class="language-markup">&lt;nav class=&quot;top-bar&quot; data-topbar role=&quot;navigation&quot;&gt;
-	&lt;ul class=&quot;title-area&quot;&gt;
-		&lt;li class=&quot;name&quot;&gt;
-			&lt;h1&gt;&lt;a href=&quot;#&quot;&gt;My Site&lt;/a&gt;&lt;/h1&gt;
-		&lt;/li&gt;
-		&lt;!-- Remove the class &quot;menu-icon&quot; to get rid of menu icon. Take out &quot;Menu&quot; to just have icon alone --&gt;
-		&lt;li class=&quot;toggle-topbar menu-icon&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;span&gt;Menu&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-
-	&lt;section class=&quot;top-bar-section&quot;&gt;
-		&lt;!-- Right Nav Section --&gt;
-		&lt;ul class=&quot;right&quot;&gt;
-			&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Right Button Active&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;has-dropdown&quot;&gt;
-				&lt;a href=&quot;#&quot;&gt;Right Button Dropdown&lt;/a&gt;
-				&lt;ul class=&quot;dropdown&quot;&gt;
-					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;First link in dropdown&lt;/a&gt;&lt;/li&gt;
-					&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Active link in dropdown&lt;/a&gt;&lt;/li&gt;
-				&lt;/ul&gt;
-			&lt;/li&gt;
+	<pre><code class="language-markup">&lt;nav class=&quot;top-bar&quot;&gt;
+	&lt;div class=&quot;top-bar-left&quot;&gt;
+		&lt;ul class=&quot;dropdown menu&quot; data-dropdown-menu&gt;
+			&lt;li class=&quot;menu-text&quot;&gt;Site Title&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Three&lt;/a&gt;&lt;/li&gt;
 		&lt;/ul&gt;
-
-		&lt;!-- Left Nav Section --&gt;
-		&lt;ul class=&quot;left&quot;&gt;
-			&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Left Nav Button&lt;/a&gt;&lt;/li&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;top-bar-right&quot;&gt;
+		&lt;ul class=&quot;menu&quot;&gt;
+			&lt;li&gt;&lt;input type=&quot;search&quot; placeholder=&quot;Search&quot;&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;button type=&quot;button&quot; class=&quot;button&quot;&gt;Search&lt;/button&gt;&lt;/li&gt;
 		&lt;/ul&gt;
-	&lt;/section&gt;
+	&lt;/div&gt;
 &lt;/nav&gt;</code></pre>
 </div>
 

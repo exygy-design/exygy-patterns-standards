@@ -15,9 +15,6 @@
 var $ = require('../../vendor/jquery/dist/jquery.min.js');
 window.jQuery = $;
 
-// Loading modernizr via a custom node build that is dropped into the local toolkit/script directory.
-var Modernizr = require('./modernizr.js');
-
 // Loading foundation from bower in order to support modernizr module
 var foundation = require('foundation-sites/js/foundation.core.js');
 var foundationAccordion = require('foundation-sites/js/foundation.accordion.js');
