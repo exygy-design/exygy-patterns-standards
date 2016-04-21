@@ -2,43 +2,53 @@
 
 // 1. Configuration and helpers
 @import
-  'utils/settings',
+  'settings',
+  'utils/variables',
   'utils/mixins',
-  'utils/type',
   'utils/color',
   'utils/positioning',
   'utils/spacing';
 
 // 2. Vendors
-@import
+@import 
   'vendor/normalize',
-  'vendor/foundation/components/accordion',
-  'vendor/foundation/components/alert-boxes',
-  'vendor/foundation/components/block-grid',
-  'vendor/foundation/components/breadcrumbs',
-  'vendor/foundation/components/button-groups',
-  'vendor/foundation/components/buttons',
-  'vendor/foundation/components/clearing',
-  'vendor/foundation/components/dropdown',
-  'vendor/foundation/components/dropdown-buttons',
-  'vendor/foundation/components/forms',
-  'vendor/foundation/components/grid',
-  'vendor/foundation/components/icon-bar',
-  'vendor/foundation/components/inline-lists',
-  'vendor/foundation/components/labels',
-  'vendor/foundation/components/pagination',
-  'vendor/foundation/components/panels',
-  'vendor/foundation/components/reveal',
-  'vendor/foundation/components/sub-nav',
-  'vendor/foundation/components/tables',
-  'vendor/foundation/components/tabs',
-  'vendor/foundation/components/tooltips',
-  'vendor/foundation/components/top-bar',
-  'vendor/foundation/components/visibility';
+  '../../vendor/foundation/scss/util/util',
+  '../../vendor/foundation/scss/global',
+  '../../vendor/foundation/scss/grid/grid',
+  '../../vendor/foundation/scss/typography/typography',
+  '../../vendor/foundation/scss/forms/forms',
+
+  // Components
+  '../../vendor/foundation/scss/components/accordion-menu',
+  '../../vendor/foundation/scss/components/accordion',
+  '../../vendor/foundation/scss/components/badge',
+  '../../vendor/foundation/scss/components/breadcrumbs',
+  '../../vendor/foundation/scss/components/button-group',
+  '../../vendor/foundation/scss/components/button',
+  '../../vendor/foundation/scss/components/callout',
+  '../../vendor/foundation/scss/components/close-button',
+  '../../vendor/foundation/scss/components/drilldown',
+  '../../vendor/foundation/scss/components/dropdown',
+  '../../vendor/foundation/scss/components/flex',
+  '../../vendor/foundation/scss/components/float',
+  '../../vendor/foundation/scss/components/label',
+  '../../vendor/foundation/scss/components/media-object',
+  '../../vendor/foundation/scss/components/menu-icon',
+  '../../vendor/foundation/scss/components/menu',
+  '../../vendor/foundation/scss/components/off-canvas',
+  '../../vendor/foundation/scss/components/pagination',
+  '../../vendor/foundation/scss/components/reveal',
+  '../../vendor/foundation/scss/components/sticky',
+  '../../vendor/foundation/scss/components/table',
+  '../../vendor/foundation/scss/components/tabs',
+  '../../vendor/foundation/scss/components/thumbnail',
+  '../../vendor/foundation/scss/components/title-bar',
+  '../../vendor/foundation/scss/components/tooltip',
+  '../../vendor/foundation/scss/components/top-bar',
+  '../../vendor/foundation/scss/components/visibility',
+  'mixins';
 
 // 3. Base stuff
-@import
-  'base/typography';
 
 // 4. Layout-related sections
 @import

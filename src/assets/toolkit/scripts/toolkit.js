@@ -12,14 +12,18 @@
 // Because Bower does not force a module structure, you have use a more specific path.
 
 // we're now requiring it from the node_modules directory
-var $ = require('jquery/dist/jquery.min.js');
+var $ = require('../../vendor/jquery/dist/jquery.min.js');
 window.jQuery = $;
 
 // Loading modernizr via a custom node build that is dropped into the local toolkit/script directory.
 var Modernizr = require('./modernizr.js');
 
 // Loading foundation from bower in order to support modernizr module
-var foundation = require('foundation/js/foundation.min.js');
+var foundation = require('foundation-sites/js/foundation.core.js');
+var foundationAccordion = require('foundation-sites/js/foundation.accordion.js');
+var foundationReveal = require('foundation-sites/js/foundation.reveal.js');
+var foundationAbide = require('foundation-sites/js/foundation.abide.js');
+var foundationTooltip = require('foundation-sites/js/foundation.tooltip.js');
 
 //require('smoothstate/jquery.smoothState.min.js');
 // var smoothState = require('./jquery.smoothState.min.js');

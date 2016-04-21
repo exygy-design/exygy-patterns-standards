@@ -17,7 +17,7 @@
   ],
   "devDependencies": {
     "jquery": "~2.1.4",
-    "foundation": "foundation-sites#5.5.3"
+    "foundation": "foundation-sites#6.2.1"
   },
   "scripts": {
     "gulp": "gulp",
