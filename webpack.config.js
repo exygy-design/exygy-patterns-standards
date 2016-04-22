@@ -25,7 +25,10 @@ module.exports = function(fabricatorConfig) {
     },
     plugins: [],
     resolve: {
-      modulesDirectories: ['node_modules', 'bower_components']
+      modulesDirectories: ['node_modules', 'bower_components'],
+      alias: {
+        foundation: './foundation.core.js'
+      }
     },
     cache: {},
     externals: {
