@@ -4,6 +4,9 @@
 
 'use strict';
 
+// Add ES2015 polyfills
+require('babel-polyfill');
+
 // For Node Modules
 // Because no path was specified, Module will be included from "node_modules"
 //var $ = require('jquery');
