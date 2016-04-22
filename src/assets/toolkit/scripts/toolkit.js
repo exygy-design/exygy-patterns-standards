@@ -14,10 +14,6 @@ require('babel-polyfill');
 // For Bower Components
 // Because Bower does not force a module structure, you have use a more specific path.
 
-// we're now requiring it from the bower/vendor directory
-var $ = require('../../vendor/jquery/dist/jquery.min.js');
-window.jQuery = $;
-
 // Loading foundation from node
 var foundation = require('foundation-sites/js/foundation.core.js');
 var foundationMediaQuery = require('foundation-sites/js/foundation.util.mediaQuery.js');
@@ -33,7 +29,6 @@ var foundationTooltip = require('foundation-sites/js/foundation.tooltip.js');
 //require('smoothstate/jquery.smoothState.min.js');
 // var smoothState = require('./jquery.smoothState.min.js');
 
-window.foundation = foundation;
 // console.log($);
 // $('h1').fadeOut(2000);
 

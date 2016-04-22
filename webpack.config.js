@@ -27,7 +27,10 @@ module.exports = function(fabricatorConfig) {
     resolve: {
       modulesDirectories: ['node_modules', 'bower_components']
     },
-    cache: {}
+    cache: {},
+    externals: {
+      jquery: 'jQuery'
+    }
   };
 
   if (!fabricatorConfig.dev) {

@@ -15,6 +15,7 @@ var reload = browserSync.reload;
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
 var webpack = require('webpack');
 
 
@@ -75,7 +76,7 @@ gulp.task('styles', ['styles:fabricator', 'styles:toolkit']);
 
 
 // scripts
-gulp.task('scripts', function (done) {
+gulp.task('scripts', ['scripts:jquery'], function (done) {
 	webpackCompiler.run(function (error, result) {
 		if (error) {
 			gutil.log(gutil.colors.red(error));
@@ -90,6 +91,13 @@ gulp.task('scripts', function (done) {
 	});
 });
 
+gulp.task('scripts:jquery', function() {
+	return gulp.src('./src/assets/vendor/jquery/dist/jquery.js')
+		.pipe(uglify())
+		.pipe(rename('jquery.min.js'))
+		.pipe(gulp.dest(config.dest + '/assets/toolkit/scripts'))
+	;
+});
 
 // images
 gulp.task('images', ['favicon'], function () {
