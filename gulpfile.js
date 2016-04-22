@@ -44,8 +44,8 @@ var webpackCompiler = webpack(webpackConfig);
 
 
 // clean
-gulp.task('clean', function (cb) {
-	del([config.dest], cb);
+gulp.task('clean', function () {
+	return del([config.dest]);
 });
 
 // styles
@@ -63,11 +63,11 @@ gulp.task('styles:fabricator', function () {
 
 gulp.task('styles:toolkit', function () {
 	gulp.src(config.src.styles.toolkit)
-		.pipe(sourcemaps.init())
+		.pipe(gulpif(config.dev, sourcemaps.init()))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(prefix('last 1 version'))
 		.pipe(gulpif(!config.dev, csso()))
-		.pipe(sourcemaps.write())
+		.pipe(gulpif(config.dev, sourcemaps.write()))
 		.pipe(gulp.dest(config.dest + '/assets/toolkit/styles'))
 		.pipe(gulpif(config.dev, reload({stream:true})));
 });
@@ -116,14 +116,16 @@ gulp.task('favicon', function () {
 gulp.task('assemble', function (done) {
 	assemble({
 		logErrors: config.dev,
+		dest: config.dest,
 		helpers: {
-        default: function (value, defaultValue) {
-            return value ? value : defaultValue;
-        }
-    }
+        		default: function (value, defaultValue) {
+		            return value ? value : defaultValue;
+	        	}
+		}
 	});
 	done();
 });
+
 
 // server
 gulp.task('serve', function () {
