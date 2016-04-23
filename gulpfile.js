@@ -34,6 +34,16 @@ var config = {
 		images: 'src/assets/toolkit/images/**/*',
 		views: 'src/toolkit/views/*.html'
 	},
+	browsers: [
+		'Android >= 2.3',
+		'Explorer >= 9',
+		'last 2 iOS versions',
+		'last 2 Chrome versions',
+		'last 2 ExplorerMobile versions',
+		'last 2 Firefox versions',
+		'last 2 Opera versions',
+		'last 2 Safari versions',
+	],
 	dest: 'dist'
 };
 
@@ -53,7 +63,7 @@ gulp.task('styles:fabricator', function () {
 	gulp.src(config.src.styles.fabricator)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
-		.pipe(prefix('last 1 version'))
+		.pipe(prefix(config.browsers))
 		.pipe(gulpif(!config.dev, csso()))
 		.pipe(rename('f.css'))
 		.pipe(sourcemaps.write())
@@ -65,7 +75,7 @@ gulp.task('styles:toolkit', function () {
 	gulp.src(config.src.styles.toolkit)
 		.pipe(gulpif(config.dev, sourcemaps.init()))
 		.pipe(sass().on('error', sass.logError))
-		.pipe(prefix('last 1 version'))
+		.pipe(prefix(config.browsers))
 		.pipe(gulpif(!config.dev, csso()))
 		.pipe(gulpif(config.dev, sourcemaps.write()))
 		.pipe(gulp.dest(config.dest + '/assets/toolkit/styles'))
