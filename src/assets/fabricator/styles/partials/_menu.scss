@@ -78,10 +78,12 @@
 	}
 
 	.f-menu_accordion_group {
+		position: relative;
+
 		.control {
 			position: absolute;
 			left: 10px;
-			top: 3px;
+			top: 5px;
 			cursor: pointer;
 			width: 10px;
 			height: 10px;
