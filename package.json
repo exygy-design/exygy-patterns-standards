@@ -6,11 +6,9 @@
   "main": "README.md",
   "scripts": {
     "gulp": "gulp",
-    "bower": "bower",
-    "prestart": "npm install",
+    "prestart": "npm install && bower install",
     "build": "npm install && gulp",
     "start": "gulp --dev",
-    "postinstall": "bower install",
     "test": "npm run build"
   },
   "keywords": [
@@ -22,7 +20,7 @@
     "library"
   ],
   "author": "Exygy",
-  "licenses": "MIT",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/exygy-design/exygy-patterns-f6.git"
