@@ -10,9 +10,9 @@
   'utils/spacing';
 
 // 2. Vendors
-@import 
+@import
   'vendor/normalize',
-  '../../vendor/foundation/scss/foundation';
+  '../../vendor/foundation-sites/scss/foundation';
 
 @include foundation-global-styles;
 @include foundation-grid;
