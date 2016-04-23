@@ -127,11 +127,7 @@ gulp.task('assemble', function (done) {
 	assemble({
 		logErrors: config.dev,
 		dest: config.dest,
-		helpers: {
-        		default: function (value, defaultValue) {
-		            return value ? value : defaultValue;
-	        	}
-		}
+		helpers: require('./handlebars-helpers'),
 	});
 	done();
 });
