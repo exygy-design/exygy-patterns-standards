@@ -45,8 +45,4 @@ $(document).ready(function () {
   //console.log('Script kiddies of the world unite.')
   $(document).foundation();
 
-  $("body").on("click", ".toggler", function() {
-    $(".toggled").toggle(); /*shows or hides #box*/
-  });
-
 });
