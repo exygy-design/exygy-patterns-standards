@@ -102,3 +102,20 @@ $position-default: null !default;
   display: block;
   margin: 0 auto;
 }
+
+.pr-vert-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tb-table {
+  display: table;
+  width: 100%;
+}
+
+.tb-vert-align {
+  display: table-cell;
+  vertical-align: middle;
+}
+
