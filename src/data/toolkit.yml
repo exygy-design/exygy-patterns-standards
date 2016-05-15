@@ -19,6 +19,7 @@ button:
     Large: large
     Expanded: expanded
 icons:
+  symbols:
     - saved
     - add
     - approved
@@ -46,8 +47,14 @@ icons:
     - send
     - star
     - warning
-colors:
+  fills:
     - primary
     - secondary
     - alert
     - warning
+  sizes:
+    - tiny
+    - small
+    - base
+    - medium
+    - large
