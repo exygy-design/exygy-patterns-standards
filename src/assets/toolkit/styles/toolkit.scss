@@ -1,6 +1,9 @@
 @charset 'UTF-8';
 
-// 1. Configuration and helpers
+// Fonts
+// @import '../fonts/fonts';
+
+// Configuration and helpers
 @import
   'settings',
   'utils/variables',
@@ -9,7 +12,7 @@
   'utils/positioning',
   'utils/spacing';
 
-// 2. Vendors
+// Vendors
 @import
   'vendor/normalize',
   '../../vendor/foundation-sites/scss/foundation';
@@ -50,14 +53,15 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 
-// 3. Layout-related sections
+// Layout-related sections
 @import
   // 'layout/header',
   'layout/footer';
 
-// 4. Components
+// Components
 @import
   'components/button',
+  'components/icon',
   'components/inputs',
   'components/card',
   'components/hero',
