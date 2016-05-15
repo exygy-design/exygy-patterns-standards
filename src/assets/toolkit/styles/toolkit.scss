@@ -50,14 +50,12 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 
-// 3. Base stuff
-
-// 4. Layout-related sections
+// 3. Layout-related sections
 @import
   // 'layout/header',
   'layout/footer';
 
-// 5. Components
+// 4. Components
 @import
   'components/button',
   'components/inputs',
@@ -65,10 +63,3 @@
   'components/hero',
   'components/login';
 
-// 6. Page-specific styles
-// @import
-  // 'pages/home';
-
-// 7. Themes
-// @import
-  // 'themes/default';

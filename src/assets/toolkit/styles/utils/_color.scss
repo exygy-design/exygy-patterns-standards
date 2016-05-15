@@ -20,6 +20,7 @@
   }
 }
 
+// Link helper 
 .a {
   @each $color-name, $color-value in $colors {
     &-#{"" + $color-name} {
@@ -32,6 +33,7 @@
   }
 }
 
+// Icon helper 
 .i {
   @each $color-name, $color-value in $colors {
     &-#{"" + $color-name} {
