@@ -24,12 +24,15 @@ $ npm start
 
 ##Interface Inventory
 
-Using the starter framework and visual comps conduct an Interface Inventory and identify all the major components across the screens. Categorize and name each component meaningfully. How would you present your findings to the team?
+Using the starter framework and visual comps conduct an Interface Inventory and identify all the major components across the screens. 
+* Categorize and name each component meaningfully. 
+* How would you present your findings to the team?
 
 
 ##Sass Architecture
 
-Draft a modular sass architecture using folders and nested scss files based on your interface inventory. How would you organize all of these files in a meaningful way in order to find stuff later when you and other developers come back to the code?
+Draft a modular sass architecture using folders and nested scss files based on your interface inventory. 
+How would you organize all of these files in a meaningful way in order to find stuff later when you and other developers come back to the code?
 
 
 ##Component Design
@@ -41,7 +44,6 @@ Detail a number of key components.
 * Also outline the styles for any descendent elements as needed. 
 * Ensure your components responsive and designed with mobile first breakpoints.
 
-
-Example:
-Buttons 
-List Elements - Suggested
+###Example:
+* Buttons 
+* List Elements - Suggested
