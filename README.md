@@ -38,10 +38,10 @@ Draft a modular sass architecture using folders and nested scss files based on y
 ##Component Design
 
 Detail a number of key components. 
-* Give attention to the naming conventions of each components, its variants, modifiers and states.
+* Give attention to the naming conventions of each component, its variants, modifiers and states.
 * Use semantic markup wherever possible (html5 tags, class names, etc)
 * Also outline the styles for any descendent elements as needed. 
-* Ensure your components responsive and designed with mobile first breakpoints.
+* Ensure your components are responsive and designed with mobile first breakpoints.
 
 ###Example:
 * Buttons 
