@@ -32,13 +32,12 @@ Using the starter framework and visual comps conduct an Interface Inventory and 
 ##Sass Architecture
 
 Draft a modular sass architecture using folders and nested scss files based on your interface inventory. 
-How would you organize all of these files in a meaningful way in order to find stuff later when you and other developers come back to the code?
+* How would you organize all of these files in a meaningful way in order to find stuff later when you and other developers come back to the code?
 
 
 ##Component Design
 
 Detail a number of key components. 
-
 * Give attention to the naming conventions of each components, its variants, modifiers and states.
 * Use semantic markup wherever possible (html5 tags, class names, etc)
 * Also outline the styles for any descendent elements as needed. 
