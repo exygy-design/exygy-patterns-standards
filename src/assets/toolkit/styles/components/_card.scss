@@ -39,20 +39,14 @@ $card-divider-background: darken($card-background, 7%) !default;
   }
 }
 
-@mixin card-divider(
-  $background: $card-divider-background,
-  $padding: $card-padding
-) {
+@mixin card-divider($background: $card-divider-background,$padding: $card-padding) {
   background: $background;
   padding: $padding;
 }
 
-@mixin card-section(
-  $padding: $card-padding
-) {
+@mixin card-section($padding: $card-padding) {
   padding: $padding;
 }
-
 
 .card {
   @include card-container;
@@ -61,6 +55,7 @@ $card-divider-background: darken($card-background, 7%) !default;
 .card-divider {
   @include card-divider;
 }
+
 .card-section {
   @include card-section;
 }
