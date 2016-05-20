@@ -326,46 +326,55 @@ $units: (
   }
 }
 
-
 ////////////////////////////////////////////////////////
-// DEMOS
+// Utilities
 ////////////////////////////////////////////////////////
-
-%no-margin {
-  #{h1, h2, h3, h4, h5, h6, p} {
-    margin-bottom: 0;
-  }
-}
 
 .spacing-verticals {
   @extend %margin-top;
   @extend %margin-bottom;
 }
 
-.padding--verticals {
-  @include units($variation: (top: true, bottom: true, left: true));
-}
-
-.no-padding {
-  padding: 0 !important;
-}
-
-.padding-left-none {
-  padding-left: 0 !important;
-}
-
-.padding-right-none {
-  padding-right: 0 !important;
-}
-
 .no-margin {
   margin: 0 !important;
+}
+
+.margin-top-none {
+  margin-top: 0 !important;
+}
+
+.margin-right-none {
+  margin-right: 0 !important;
 }
 
 .margin-bottom-none {
   margin-bottom: 0 !important;
 }
 
-.margin-top-none {
-  margin-top: 0 !important;
+.margin-left-none {
+  margin-left: 0 !important;
+}
+
+.padding--verticals {
+  @include units($variation: (top: true, bottom: false, left: true));
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.padding-top-none {
+  padding-top: 0 !important;
+}
+
+.padding-right-none {
+  padding-right: 0 !important;
+}
+
+.padding-bottom-none {
+  padding-bottom: 0 !important;
+}
+
+.padding-left-none {
+  padding-left: 0 !important;
 }

@@ -6,9 +6,9 @@
 // Configuration and helpers
 @import
   'settings',
-  'utils/variables',
   'utils/mixins',
   'utils/color',
+  'utils/type',
   'utils/positioning',
   'utils/spacing';
 
@@ -60,6 +60,7 @@
 // Components
 @import
   'components/button',
+  'components/tables',
   'components/icon',
   'components/card',
   'components/hero',

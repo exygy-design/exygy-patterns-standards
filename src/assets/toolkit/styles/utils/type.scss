@@ -1,0 +1,35 @@
+.t-serif {
+  font-family:$serif-font-family !important;
+}
+
+.t-sans {
+  font-family:$body-font-family !important;
+}
+
+.t-black {
+   @include type-weight(black);
+}
+
+.t-bold {
+   @include type-weight(bold);
+}
+
+.t-semi {
+   @include type-weight(semi);
+}
+
+.t-normal {
+  @include type-weight(regular);
+}
+
+.t-light {
+  @include type-weight(light);
+}
+
+.t-caps {
+  text-transform: uppercase !important;
+}
+
+.t-titled {
+  text-transform: capitalize !important;
+}

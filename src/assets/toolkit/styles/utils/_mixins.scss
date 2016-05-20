@@ -3,6 +3,10 @@
   left: -999em;
 }
 
+@mixin type-weight($weight) {
+  font-weight: map-get($type-weight, $weight) !important;
+}
+
 // Font Icons
 // @mixin icon-size( $size ){
 //   font-size: map-get( $icon-sizes, $size );
