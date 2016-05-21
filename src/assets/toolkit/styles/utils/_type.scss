@@ -1,0 +1,79 @@
+// Font sizes
+//
+.h1, .t-alpha {
+  font-size: rem-calc(48);
+}
+
+.h2, .t-beta {
+  font-size: rem-calc(40);
+}
+
+.h3, .t-gamma {
+  font-size: rem-calc(31);
+}
+
+.h4, .t-delta {
+  font-size: rem-calc(25);
+}
+
+.h5, .t-epsilon {
+  font-size: rem-calc(20);
+}
+
+.h6, .t-base {
+  font-size: rem-calc(16);
+}
+
+.t-small {
+  font-size: rem-calc(14);
+}
+
+.t-tiny {
+  font-size: rem-calc(12);
+}
+
+.t-micro {
+  font-size: rem-calc(10);
+}
+
+// Font families
+//
+.t-serif {
+  font-family:$serif-font-family !important;
+}
+
+.t-sans {
+  font-family:$body-font-family !important;
+}
+
+// Font weights
+//
+.t-black {
+   @include type-weight(black);
+}
+
+.t-bold {
+   @include type-weight(bold);
+}
+
+.t-semi {
+   @include type-weight(semi);
+}
+
+.t-normal {
+  @include type-weight(regular);
+}
+
+.t-light {
+  @include type-weight(light);
+}
+
+// Font transforms
+//
+.t-caps {
+  text-transform: uppercase !important;
+}
+
+.t-titled {
+  text-transform: capitalize !important;
+}

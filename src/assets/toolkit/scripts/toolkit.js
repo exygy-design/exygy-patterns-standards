@@ -22,6 +22,7 @@ var foundationBox = require('../../vendor/foundation-sites/js/foundation.util.bo
 var foundationBox = require('../../vendor/foundation-sites/js/foundation.util.nest.js');
 var foundationMotion = require('../../vendor/foundation-sites/js/foundation.util.motion.js');
 var foundationTriggers = require('../../vendor/foundation-sites/js/foundation.util.triggers.js');
+var foundationTouch = require('../../vendor/foundation-sites/js/foundation.util.touch.js');
 var foundationTimerAndImageLoader = require('../../vendor/foundation-sites/js/foundation.util.timerAndImageLoader.js');
 var foundationDropdown = require('../../vendor/foundation-sites/js/foundation.dropdown.js');
 var foundationAccordion = require('../../vendor/foundation-sites/js/foundation.accordion.js');
@@ -31,6 +32,7 @@ var foundationTooltip = require('../../vendor/foundation-sites/js/foundation.too
 var foundationDropdownMenu = require('../../vendor/foundation-sites/js/foundation.dropdownMenu.js');
 var foundationToggler = require('../../vendor/foundation-sites/js/foundation.toggler.js');
 var foundationTabs = require('../../vendor/foundation-sites/js/foundation.tabs.js');
+var foundationSlider = require('../../vendor/foundation-sites/js/foundation.slider.js');
 
 //require('smoothstate/jquery.smoothState.min.js');
 // var smoothState = require('./jquery.smoothState.min.js');
