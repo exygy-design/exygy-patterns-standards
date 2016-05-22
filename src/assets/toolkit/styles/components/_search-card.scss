@@ -1,0 +1,24 @@
+.search-card {
+  position: relative;
+  padding-right: 5rem;
+
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.search-card-meta {
+  @include absolute(1rem,1rem,null,null);
+  text-align: right;
+}
+
+.search-card-fave {
+
+}
+
+.search-card-detail {
+  color: $medium-gray;
+  font-size: $t-small;
+}  

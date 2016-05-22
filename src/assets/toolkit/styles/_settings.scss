@@ -101,12 +101,17 @@ $font-weight-black: map-get($type-weight, black);
 @include add-foundation-colors;
 
 $colors: (
-  primary:   $primary,
-  secondary: $secondary,
-  attention: $attention,
-  success:   $success,
-  alert:     $alert,
-  warn:      $warn,
+  primary:     $primary,
+  secondary:   $secondary,
+  attention:   $attention,
+  success:     $success,
+  alert:       $alert,
+  warn:        $warn,
+  black:       $success,
+  white:       $alert,
+  dark-gray:   $dark-gray,
+  medium-gray: $medium-gray,
+  light-gray:  $light-gray,
 );
 
 // 2. Breakpoints

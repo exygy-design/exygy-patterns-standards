@@ -1,5 +1,16 @@
 // Font sizes
 //
+
+$t-alpha: rem-calc(48);
+$t-beta: rem-calc(40);
+$t-gamma: rem-calc(31);
+$t-delta: rem-calc(25);
+$t-epsilon: rem-calc(20);
+$t-base: rem-calc(16);
+$t-small: rem-calc(14);
+$t-tiny: rem-calc(12);
+$t-micro: rem-calc(10);
+
 .h1, .t-alpha {
   font-size: rem-calc(48);
 }
@@ -76,4 +87,9 @@
 
 .t-titled {
   text-transform: capitalize !important;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: 1rem;
 }
