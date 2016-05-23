@@ -28,7 +28,8 @@ $hero-color: white;
 
 .hero-header {
   color: $hero-color;
-  font-size: 1.6em;
+  font-size: $t-beta;
+  font-family: $serif-font-family;
   margin-bottom: 0.5em;
 }
 
