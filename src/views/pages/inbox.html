@@ -12,9 +12,18 @@
         <li class="tabs-title"><a href="#panel4v">{{> profile-object }}</a></li>
       </ul>
     </div>
-    <div class="medium-9 columns">
-      <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
+    <div class="medium-9 columns p-relative">
+      <div class="message-content tabs-content vertical" data-tabs-content="example-vert-tabs">
         <div class="tabs-panel is-active" id="panel1v">
+          <p class="text-center">April 13, 2016</p>
+          {{> message-object }}
+          <hr>
+          {{> message-object }}
+          <hr>
+          {{> message-object }}
+          <hr>
+          {{> message-object }}
+          <hr>
           {{> message-object }}
           <hr>
           {{> message-object }}
@@ -37,8 +46,11 @@
           <img class="thumbnail" src="assets/img/generic/rectangle-5.jpg">
         </div>
       </div>
+      <div class="message-input">
+          {{> forms.message-input }}
+      </div>
     </div>
   </div>
 </div>
 
-{{> footer }}
+{{> footer classes="stuck" }}

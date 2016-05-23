@@ -39,7 +39,7 @@ $sticky-footer-height: rem-calc(90);
       margin: 0 0 $sticky-footer-height; /* bottom = footer height */
   }
 
-  .footer {
+  .stuck {
       position: absolute;
       left: 0;
       bottom: 0;

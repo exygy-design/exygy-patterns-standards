@@ -1,0 +1,12 @@
+.message-content {
+  max-height: 70vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.message-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

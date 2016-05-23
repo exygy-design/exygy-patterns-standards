@@ -33,6 +33,7 @@ var foundationDropdownMenu = require('../../vendor/foundation-sites/js/foundatio
 var foundationToggler = require('../../vendor/foundation-sites/js/foundation.toggler.js');
 var foundationTabs = require('../../vendor/foundation-sites/js/foundation.tabs.js');
 var foundationSlider = require('../../vendor/foundation-sites/js/foundation.slider.js');
+var foundationSticky = require('../../vendor/foundation-sites/js/foundation.sticky.js');
 
 //require('smoothstate/jquery.smoothState.min.js');
 // var smoothState = require('./jquery.smoothState.min.js');
