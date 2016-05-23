@@ -1,0 +1,13 @@
+---
+notes: |
+  Uses SVGs symbols which are stored in `layouts/includes`
+---
+<div class="margin-bottom">
+{{#each toolkit.icons.symbols}}
+  <span class="ui-icon i-medium">
+    <svg>
+      <use xlink:href="#i-{{this}}"></use>
+    </svg>
+  </span>
+{{/each}}
+</div>
