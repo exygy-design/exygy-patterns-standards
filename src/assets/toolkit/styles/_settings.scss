@@ -48,7 +48,7 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900);
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1000);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #0071bc,
@@ -553,7 +553,7 @@ $tab-background: $white;
 $tab-background-active: $light-gray;
 $tab-item-font-size: rem-calc(12);
 $tab-item-background-hover: $white;
-$tab-item-padding: 1.25rem 1.5rem;
+$tab-item-padding: 1rem 1rem;
 $tab-expand-max: 6;
 $tab-content-background: $white;
 $tab-content-border: $light-gray;

@@ -24,3 +24,26 @@
     text-align: right;
   }
 }
+
+// Simple sticky footer
+$sticky-footer-height: rem-calc(90);
+
+@include breakpoint(medium up) {
+  html {
+      position: relative;
+      height: auto;
+      min-height: 100%;
+  }
+
+  body {
+      margin: 0 0 $sticky-footer-height; /* bottom = footer height */
+  }
+
+  .footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: $sticky-footer-height;
+      width: 100%;
+  }
+}

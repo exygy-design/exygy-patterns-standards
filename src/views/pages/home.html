@@ -2,30 +2,37 @@
 {{> hero }}
 
 <div class="content">
-  <section class="row padding-top--2x padding-bottom--2x">
+  <section class="row padding-top--2x padding-bottom">
     <div class="large-12 columns">
-      <div class="callout">
-        <h2>Hello, World!</h2>
+      <div class="callout large bg-light-gray">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed libero ligula, mattis eu justo at, pulvinar efficitur lectus.</p>
 
-        {{> text.[paragraph]}}
-        {{> buttons.button text="My Button"}}
+        <h2 class="t-serif t-gamma">Find Residential Facilities in Your Area</h2>
 
-        <span class="a-top-right">
-          {{> buttons.button text="My Button"}}
-        </span>
+        {{> forms.search}}
+      </div>
+    </div>
+  </section>
+
+  <section class="row padding-bottom">
+    <div class="large-12 columns">
+      <div class="callout large">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed libero ligula, mattis eu justo at, pulvinar efficitur lectus.</p>
+
+        <h2 class="t-serif t-delta">Hello, World!</h2>
+
+        {{> text.link-list}}
       </div>
     </div>
   </section>
 
   <section class="row padding-bottom--2x">
-    <div class="large-4 columns">
-      {{> card content="Mad Max"}}
-    </div>
-    <div class="large-4 columns">
-      {{> card content="Road Warrior"}}
-    </div>
-    <div class="large-4 columns">
-      {{> card content="Fury Road"}}
+    <div class="large-12 columns">
+      <div class="callout large">
+        <h2 class="t-serif t-delta">Contact</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed libero ligula, mattis eu justo at, pulvinar efficitur lectus.</p>
+      </div>
     </div>
   </section>
 </div>
