@@ -1,7 +1,7 @@
-{{> top-bar }}
-{{> hero }}
+{{> top-bar classes="sticky is-stuck is-at-top column"}}
 
-<div class="content">
+<div class="content with-sticky-header">
+  {{> hero }}
   <section class="row padding-top--2x padding-bottom">
     <div class="large-12 columns">
       <div class="callout large bg-light-gray">
@@ -37,4 +37,4 @@
   </section>
 </div>
 
-{{> footer classes="stuck" }}
+{{> footer classes="stuck is-at-bottom" }}

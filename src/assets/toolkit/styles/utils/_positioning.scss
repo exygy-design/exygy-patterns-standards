@@ -119,3 +119,11 @@ $position-default: null !default;
   vertical-align: middle;
 }
 
+.content {
+  &.with-sticky-header {
+    margin-top: 4em;
+  }
+  &.with-hero {
+    margin-top: 3em;
+  }
+}
