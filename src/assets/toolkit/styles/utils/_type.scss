@@ -1,6 +1,37 @@
 // Font sizes
 //
 
+$psuedo-header-sizes: (
+  small: (
+    'h1': 24,
+    'h2': 20,
+    'h3': 19,
+    'h4': 18,
+    'h5': 17,
+    'h6': 16,
+  ),
+  medium: (
+    'h1': 48,
+    'h2': 40,
+    'h3': 31,
+    'h4': 25,
+    'h5': 20,
+    'h6': 16,
+  ),
+);
+
+
+@each $size, $headers in $header-sizes {
+  @include breakpoint($size) {
+    @each $header, $font-size in $headers {
+      %#{$header} {
+        font-size: rem-calc($font-size);
+      }
+    }
+  }
+}
+
+
 $t-alpha: rem-calc(48);
 $t-beta: rem-calc(40);
 $t-gamma: rem-calc(31);
@@ -12,27 +43,27 @@ $t-tiny: rem-calc(12);
 $t-micro: rem-calc(10);
 
 .h1, .t-alpha {
-  font-size: rem-calc(48);
+  @extend %h1;
 }
 
 .h2, .t-beta {
-  font-size: rem-calc(40);
+  @extend %h2;
 }
 
 .h3, .t-gamma {
-  font-size: rem-calc(31);
+  @extend %h3;
 }
 
 .h4, .t-delta {
-  font-size: rem-calc(25);
+  @extend %h4;
 }
 
 .h5, .t-epsilon {
-  font-size: rem-calc(20);
+  @extend %h5;
 }
 
 .h6, .t-base {
-  font-size: rem-calc(16);
+  @extend %h6;
 }
 
 .t-small {
