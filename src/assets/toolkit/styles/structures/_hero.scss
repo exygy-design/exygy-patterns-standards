@@ -27,7 +27,6 @@ $hero-color: white;
 }
 
 .hero-header {
-  @extend %h2;
   color: $hero-color;
   font-family: $serif-font-family;
   margin-bottom: 0.5em;
