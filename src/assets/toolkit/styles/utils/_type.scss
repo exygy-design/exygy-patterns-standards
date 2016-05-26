@@ -1,25 +1,7 @@
 // Font sizes
 //
 
-$psuedo-header-sizes: (
-  small: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
-    'h5': 17,
-    'h6': 16,
-  ),
-  medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
-  ),
-);
-
+// Create placeholders for each responsive header size in headers
 @each $size, $headers in $header-sizes {
   @include breakpoint($size) {
     @each $header, $font-size in $headers {
@@ -30,62 +12,42 @@ $psuedo-header-sizes: (
   }
 }
 
-$t-alpha: rem-calc(48);
-$t-beta: rem-calc(40);
-$t-gamma: rem-calc(31);
-$t-delta: rem-calc(25);
-$t-epsilon: rem-calc(20);
-$t-base: rem-calc(16);
+$t-alpha: rem-calc(map-get(map-get($header-sizes, medium), h1));
+$t-beta: rem-calc(map-get(map-get($header-sizes, medium), h2));
+$t-gamma: rem-calc(map-get(map-get($header-sizes, medium), h3));
+$t-delta: rem-calc(map-get(map-get($header-sizes, medium), h4));
+$t-epsilon: rem-calc(map-get(map-get($header-sizes, medium), h5));
+$t-base: rem-calc(map-get(map-get($header-sizes, medium), h6));
 $t-small: rem-calc(14);
 $t-tiny: rem-calc(12);
 $t-micro: rem-calc(10);
 
-.h1, .rt-alpha {
+.h1, .t-alpha {
   @extend %h1;
 }
 
-.h2, .rt-beta {
+.h2, .t-beta {
   @extend %h2;
 }
 
-.h3, .rt-gamma {
+.h3, .t-gamma {
   @extend %h3;
 }
 
-.h4, .rt-delta {
+.h4, .t-delta {
   @extend %h4;
 }
 
-.h5, .rt-epsilon {
+.h5, .t-epsilon {
   @extend %h5;
 }
 
-.h6, .rt-base {
+.h6, .t-base {
   @extend %h6;
 }
 
-.t-alpha {
-  font-size: $t-alpha;
-}
-
-.t-beta {
-  font-size: $t-beta;
-}
-
-.t-gamma {
-  font-size: $t-gamma;
-}
-
-.t-delta {
-  font-size: $t-delta;
-}
-
-.t-epsilon {
+.t-small {
   font-size: $t-small;
-}
-
-.t-base {
-  font-size: $t-base;
 }
 
 .t-tiny {
