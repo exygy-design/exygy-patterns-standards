@@ -20,7 +20,6 @@ $psuedo-header-sizes: (
   ),
 );
 
-
 @each $size, $headers in $header-sizes {
   @include breakpoint($size) {
     @each $header, $font-size in $headers {
@@ -31,36 +30,62 @@ $psuedo-header-sizes: (
   }
 }
 
+$t-alpha: rem-calc(48);
+$t-beta: rem-calc(40);
+$t-gamma: rem-calc(31);
+$t-delta: rem-calc(25);
+$t-epsilon: rem-calc(20);
+$t-base: rem-calc(16);
 $t-small: rem-calc(14);
 $t-tiny: rem-calc(12);
 $t-micro: rem-calc(10);
 
-.h1, .t-alpha {
+.h1, .rt-alpha {
   @extend %h1;
 }
 
-.h2, .t-beta {
+.h2, .rt-beta {
   @extend %h2;
 }
 
-.h3, .t-gamma {
+.h3, .rt-gamma {
   @extend %h3;
 }
 
-.h4, .t-delta {
+.h4, .rt-delta {
   @extend %h4;
 }
 
-.h5, .t-epsilon {
+.h5, .rt-epsilon {
   @extend %h5;
 }
 
-.h6, .t-base {
+.h6, .rt-base {
   @extend %h6;
 }
 
-.t-small {
+.t-alpha {
+  font-size: $t-alpha;
+}
+
+.t-beta {
+  font-size: $t-beta;
+}
+
+.t-gamma {
+  font-size: $t-gamma;
+}
+
+.t-delta {
+  font-size: $t-delta;
+}
+
+.t-epsilon {
   font-size: $t-small;
+}
+
+.t-base {
+  font-size: $t-base;
 }
 
 .t-tiny {
