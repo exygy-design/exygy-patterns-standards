@@ -44,15 +44,14 @@
 
 // 1. Global
 // ---------
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,900);
-@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600,700);
 
 $global-font-size: 100%;
 $global-width: rem-calc(1000);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #0071bc,
-  secondary: #02bfe7,
+  primary: #60C8D0,
+  secondary: #B0F0F4,
   success: #2e8540,
   warning: #fdb81e,
   alert: #e31c3d,
@@ -60,19 +59,19 @@ $foundation-palette: (
 // Brand Colors
 $primary:         map-get($foundation-palette, primary);
 $secondary:       map-get($foundation-palette, secondary);
-$attention:       #5fb8c5;
+$attention:       #E24434;
 $success:         map-get($foundation-palette, success);
 $alert:           map-get($foundation-palette, alert);
 $warn:            map-get($foundation-palette, warning);
 $light-gray: #f1f1f1;
 $medium-gray: #5b616b;
-$dark-gray: #323a45;
+$dark-gray: #273C3F;
 $black: #212121;
 $white: #ffffff;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: "Source Sans Pro", Helvetica, Arial, Verdana, sans-serif;
-$serif-font-family: "Merriweather", Georgia, Times, serif;
+$body-font-family: "Raleway", Helvetica, Arial, Verdana, sans-serif;
+$serif-font-family: Georgia, Times, serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -81,22 +80,13 @@ $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
 
-$type-weight: (
-  light: 300,
-  regular: 400,
-  semi: 600,
-  bold: 700,
-  black: 900
-);
+$global-weight-normal: 400;
+$global-weight-bold: 600;
 
-$global-weight-normal: map-get($type-weight, normal);
-$global-weight-bold: map-get($type-weight, bold);
-
-$font-weight-light: map-get($type-weight, light);
 $font-weight-normal: $global-weight-normal;
-$font-weight-semi: map-get($type-weight, semi);
+$font-weight-semi: 500;
 $font-weight-bold: $global-weight-bold;
-$font-weight-black: map-get($type-weight, black);
+$font-weight-black: 700;
 
 @include add-foundation-colors;
 
@@ -597,8 +587,8 @@ $tooltip-radius: $global-radius;
 // 36. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-padding: 0;
+$topbar-background: $white;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

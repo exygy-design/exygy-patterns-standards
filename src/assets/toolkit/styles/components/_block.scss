@@ -1,0 +1,44 @@
+%block-margins {
+  margin-top: rem-calc(3);
+  margin-right: 0; 
+  margin-bottom: rem-calc(3);
+  margin-left: rem-calc(3);
+}
+
+.block {
+  @extend %block-margins;
+  background-color: $white;
+  padding: 1.5rem;
+  position: relative;
+
+  &.attention {
+    background-color: $attention;
+    color: $white;
+
+    a {
+      color: $white;
+    }
+  }
+}
+
+.block-header {
+  @include clearfix;
+  margin-bottom: 1rem;
+}
+
+.block-title {
+  font-weight: $font-weight-bold;
+  letter-spacing: rem-calc(1.4);
+  text-transform: uppercase;
+}
+
+.block-edit {
+  @include absolute(1.5rem,1.5rem,null,null);
+  color: $attention;
+  font-size: $t-tiny;
+  text-decoration: underline;
+}
+
+.image-block {
+  @extend %block-margins;
+}

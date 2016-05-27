@@ -60,9 +60,6 @@ $t-micro: rem-calc(10);
 
 // Font families
 //
-.t-serif {
-  font-family:$serif-font-family !important;
-}
 
 .t-sans {
   font-family:$body-font-family !important;
@@ -71,23 +68,19 @@ $t-micro: rem-calc(10);
 // Font weights
 //
 .t-black {
-   @include type-weight(black);
+   font-weight: $font-weight-black;
 }
 
 .t-bold {
-   @include type-weight(bold);
+   font-weight: $font-weight-bold;
 }
 
 .t-semi {
-   @include type-weight(semi);
+   font-weight: $font-weight-semi;
 }
 
 .t-normal {
-  @include type-weight(regular);
-}
-
-.t-light {
-  @include type-weight(light);
+  font-weight: $font-weight-normal;
 }
 
 // Font transforms

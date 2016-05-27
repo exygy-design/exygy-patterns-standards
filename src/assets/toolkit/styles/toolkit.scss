@@ -54,8 +54,8 @@
 @include foundation-top-bar;
 
 // Layout-related sections
-// @import
-//   'layout/3-column';
+@import
+  'layout/default';
 
 // Components
 @import
@@ -65,12 +65,16 @@
   'components/inputs',
   'components/search',
   'components/card',
+  'components/block',
   'components/media-object',
+  'components/caption-overlay',
   'components/search-card',
+  'components/meta-list',
   'components/details-list';
 
 // Structures
 @import
+  'structures/top-bar',
   'structures/messages',
   'structures/login',
   'structures/hero',

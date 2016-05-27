@@ -1,0 +1,16 @@
+.caption-overlay {
+  position: relative;
+
+  &:before {
+    @include absolute(0,0,0,0);
+    content: "";
+    display: block;
+    background-image: linear-gradient(to bottom,transparent 50%,rgba(0,0,0,.4));
+  }
+}
+
+.caption-overlay-text {
+  @include absolute(null,0,0,0);
+  color: $white;
+  padding: 1rem;
+}

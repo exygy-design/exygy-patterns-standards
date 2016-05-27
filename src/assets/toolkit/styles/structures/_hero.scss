@@ -1,7 +1,7 @@
 $hero-color: white;
 
 .hero {  
-  background-color: #324766;
+  background-color: $attention;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,7 +28,6 @@ $hero-color: white;
 
 .hero-header {
   color: $hero-color;
-  font-family: $serif-font-family;
   margin-bottom: 0.5em;
 }
 

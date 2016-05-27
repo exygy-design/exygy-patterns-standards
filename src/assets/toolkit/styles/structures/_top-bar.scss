@@ -1,0 +1,25 @@
+.top-bar {
+
+}
+
+.top-bar-logo {
+  line-height: rem-calc(56);
+}
+
+.top-bar-menu {
+  &.menu > li > a {
+    padding: 2rem 1rem .75rem
+  }
+}
+
+.top-bar-menu-item {
+
+}
+
+.top-bar-menu-link {
+  color: $dark-gray;
+  font-weight: $font-weight-black;
+  font-size: $t-tiny;
+  text-transform: uppercase;
+}
+

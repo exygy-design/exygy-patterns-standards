@@ -1,0 +1,18 @@
+body {
+  background: $primary;
+
+  &:before {
+    @include absolute(0,0,100px,0);
+    content: '';
+    background: linear-gradient(to bottom, $secondary 5%, $primary 100%);
+    z-index: -1;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+a {
+  
+}
