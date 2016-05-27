@@ -2,7 +2,7 @@
   background-color: $light-gray;
   text-align: center;
   font-size: 1rem;
-  padding: 2rem 2rem 1rem;
+  padding: 1.5rem 0;
 }
 
 .footer-copywrite {
@@ -26,7 +26,7 @@
 }
 
 // Simple sticky footer
-$sticky-footer-height: rem-calc(90);
+$sticky-footer-height: rem-calc(56);
 
 @include breakpoint(medium up) {
   html {

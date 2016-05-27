@@ -59,7 +59,7 @@ $foundation-palette: (
 // Brand Colors
 $primary:         map-get($foundation-palette, primary);
 $secondary:       map-get($foundation-palette, secondary);
-$attention:       #E24434;
+$attention:       #FF6A51;
 $success:         map-get($foundation-palette, success);
 $alert:           map-get($foundation-palette, alert);
 $warn:            map-get($foundation-palette, warning);
@@ -80,13 +80,13 @@ $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
 
-$global-weight-normal: 400;
-$global-weight-bold: 600;
-
-$font-weight-normal: $global-weight-normal;
+$font-weight-normal: 400;
 $font-weight-semi: 500;
-$font-weight-bold: $global-weight-bold;
+$font-weight-bold: 600;
 $font-weight-black: 700;
+
+$global-weight-normal: $font-weight-semi;
+$global-weight-bold: $font-weight-bold;
 
 @include add-foundation-colors;
 
@@ -141,16 +141,16 @@ $header-sizes: (
     'h2': 20,
     'h3': 19,
     'h4': 18,
-    'h5': 17,
-    'h6': 16,
+    'h5': 15,
+    'h6': 13,
   ),
   medium: (
     'h1': 40,
     'h2': 36,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
-    'h6': 16,
+    'h3': 24,
+    'h4': 18,
+    'h5': 16,
+    'h6': 13,
   ),
 );
 $header-color: inherit;

@@ -1,0 +1,43 @@
+.messages-title {
+  
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $dark-gray;
+  }
+}
+
+.messages-title > a:focus,
+.messages-title > a[aria-selected='true'] {
+  background: $attention;
+  color: $white;
+}
+
+.message-panel {
+  padding: 0;
+}
+
+.message-feed {
+  padding: 1rem;
+}
+
+.message-subect {
+  @include clearfix;
+  background-color: $primary;
+  color: $white;
+  padding: 1rem;
+}
+
+.message-title {
+  float: left;
+  font-size: $t-base;
+  margin-bottom: 0;
+}
+
+.message-date {
+  float: right;
+}

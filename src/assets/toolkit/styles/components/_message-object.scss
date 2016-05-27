@@ -1,0 +1,15 @@
+.message-object {
+  
+}
+
+.message-thumb {
+  color: $attention;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.message-bubble {
+  border: 1px solid $attention;
+  border-radius: rem-calc(10);
+  padding: 1rem;
+}

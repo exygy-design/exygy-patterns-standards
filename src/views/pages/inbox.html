@@ -2,33 +2,38 @@
 
 <div class="content with-sticky-header">
   <div class="row collapse margin-top--2x margin-bottom--2x">
-    <div class="medium-3 columns">
+    <div class="medium-4 columns">
       <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
-        <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">{{> profile-object }}</a></li>
-        <li class="tabs-title"><a href="#panel2v">{{> profile-object }}</a></li>
-        <li class="tabs-title"><a href="#panel3v">{{> profile-object }}</a></li>
-        <li class="tabs-title"><a href="#panel4v">{{> profile-object }}</a></li>
-        <li class="tabs-title"><a href="#panel3v">{{> profile-object }}</a></li>
-        <li class="tabs-title"><a href="#panel4v">{{> profile-object }}</a></li>
+        <li class="messages-title tabs-title is-active">
+          <a href="#panel1v" aria-selected="true">
+          <h3 class="t-base">From: Ben Bills</h3>
+          <p>Re: Gloria Luck</p>
+          </a>
+        </li>
+        <li class="messages-title tabs-title">
+          <a href="#panel2v">
+            <h3 class="t-base">From: Ben Bills</h3>
+            <p>Re: Gloria Luck</p>
+          </a>
+        </li>
       </ul>
     </div>
-    <div class="medium-9 columns p-relative">
+    <div class="medium-8 columns p-relative">
       <div class="message-content tabs-content vertical" data-tabs-content="example-vert-tabs">
-        <div class="tabs-panel is-active" id="panel1v">
-          <p class="text-center">April 13, 2016</p>
-          {{> message-object }}
-          <hr>
-          {{> message-object }}
-          <hr>
-          {{> message-object }}
-          <hr>
-          {{> message-object }}
-          <hr>
-          {{> message-object }}
-          <hr>
-          {{> message-object }}
-          <hr>
-          {{> message-object }}
+        <div class="message-panel tabs-panel is-active" id="panel1v">
+          <header class="message-subect">
+            <h1 class="message-title">Re: Stephanie Lang</h1>
+            <span class="message-date">Apr 13, 2016</span>
+          </header>
+          <section class="message-feed">
+            {{> message-object }}
+            {{> message-object }}
+            {{> message-object }}
+            {{> message-object }}
+            {{> message-object }}
+            {{> message-object }}
+            {{> message-object }}
+          </section>
         </div>
         <div class="tabs-panel" id="panel2v">
           <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
