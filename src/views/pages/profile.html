@@ -4,20 +4,9 @@
   <section class="row collapse padding-top--2x padding-bottom">
     <div class="medium-4 columns">
       
-      <figure class="caption-overlay image-block">
-        <img src="http://placehold.it/358x440">
-        
-        <figcaption class="caption-overlay-text">
-          <ul class="meta-list icon-list no-bullet">
-            <li class="meta-list-item">Gender: Male</li>
-            <li class="meta-list-item">Marital Status: Widower</li>
-            <li class="meta-list-item">Religion: Bábism</li>
-            <li class="meta-list-item">Race: Native American</li>
-          </ul>
-        </figcaption>
-      </figure>
+      {{> caption-overlay }}
       
-      <section class="block bg-white">
+      <section class="content-block block bg-white">
         <header class="block-header">
           <h3 class="block-title t-base">Foster Children</h3>
           <a href="#" class="block-edit">Edit</a>
@@ -29,12 +18,7 @@
           </div>
 
           <div class="media-object-section">
-            <ul class="meta-list icon-list no-bullet">
-              <li class="meta-list-item">Gender: Male</li>
-              <li class="meta-list-item">Marital Status: Widower</li>
-              <li class="meta-list-item">Religion: Bábism</li>
-              <li class="meta-list-item">Race: Native American</li>
-            </ul>
+            {{> text.meta-list }}
           </div>
         </div>
 
@@ -44,12 +28,7 @@
           </div>
 
           <div class="media-object-section">
-            <ul class="meta-list icon-list no-bullet">
-              <li class="meta-list-item">Gender: Male</li>
-              <li class="meta-list-item">Marital Status: Widower</li>
-              <li class="meta-list-item">Religion: Bábism</li>
-              <li class="meta-list-item">Race: Native American</li>
-            </ul>
+            {{> text.meta-list }}
           </div>
         </div>
 
@@ -59,16 +38,15 @@
       <section class="block attention">
         <a href="#" class="block-edit">Edit</a>
         <ul class="meta-list no-bullet">
-          <li class="meta-list-item">Gender: Male</li>
-          <li class="meta-list-item">Marital Status: Widower</li>
-          <li class="meta-list-item">Religion: Bábism</li>
-          <li class="meta-list-item">Race: Native American</li>
+          <li class="meta-list-item">{{> icons.icon fill="white"}} happydaddy@gmail.com</li>
+          <li class="meta-list-item">{{> icons.icon fill="white"}} 415-555-1212</li>
+          <li class="meta-list-item">Preferred Mode of Contact: Phone</li>
         </ul>
       </section>
       
-      {{> block }}
+      {{> content-block }}
 
-      <section class="block bg-white">
+      <section class="content-block block bg-white">
         <header class="block-header">
           <h3 class="block-title t-base">Household Details</h3>
           <a href="#" class="block-edit">Edit</a>
@@ -76,7 +54,7 @@
 
         <div class="row">
           <div class="large-6 columns">
-            <ul class="meta-list icon-list no-bullet">
+            <ul class="meta-list tall icon-list no-bullet">
               <li class="meta-list-item">Gender: Male</li>
               <li class="meta-list-item">Marital Status: Widower</li>
               <li class="meta-list-item">Religion: Bábism</li>

@@ -1,0 +1,118 @@
+{{> top-bar classes="sticky is-stuck is-at-top column"}}
+
+<div class="content with-sticky-header">
+  <section class="row collapse padding-top--2x padding-bottom">
+    <div class="medium-4 columns">
+      
+      {{> caption-overlay }}
+      
+      <section class="content-block block bg-white">
+        <header class="block-header">
+          <h3 class="block-title t-base">Foster Children</h3>
+          <a href="#" class="block-edit">Edit</a>
+        </header>
+
+        <div class="media-object">
+          <div class="media-object-section">
+            <img src="http://placehold.it/81x111">
+          </div>
+
+          <div class="media-object-section">
+            {{> text.meta-list }}
+          </div>
+        </div>
+
+        <div class="media-object">
+          <div class="media-object-section">
+            <img src="http://placehold.it/81x111">
+          </div>
+
+          <div class="media-object-section">
+            {{> text.meta-list }}
+          </div>
+        </div>
+
+      </section>
+    </div>
+    <div class="medium-8 columns">
+      <section class="block attention">
+        <a href="#" class="block-edit">Edit</a>
+        <ul class="meta-list no-bullet">
+          <li class="meta-list-item">{{> icons.icon fill="white"}} happydaddy@gmail.com</li>
+          <li class="meta-list-item">{{> icons.icon fill="white"}} 415-555-1212</li>
+          <li class="meta-list-item">Preferred Mode of Contact: Phone</li>
+        </ul>
+      </section>
+
+      <section class="content-block block bg-white">
+        <header class="block-header">
+          <h3 class="block-title t-base">Profile</h3>
+          <a href="#" class="block-edit">Save</a>
+        </header>
+
+        <div class="row">
+          <div class="large-6 columns">
+            <ul class="meta-list tall">
+              <li class="meta-list-item">
+                <label for="textInput">Gender:</label>
+                <input type="text" id="textInput" />
+              </li>
+              <li class="meta-list-item">
+                <label for="textInput">Marital Status:</label>
+                <input type="text" id="textInput" />
+              </li>
+              <li class="meta-list-item">
+                <label for="textInput">Religion:</label>
+                <input type="text" id="textInput" />
+              </li>
+              <li class="meta-list-item">
+                <label for="textInput">Race:</label>
+                <input type="text" id="textInput" />
+              </li>
+              <li class="meta-list-item">
+                <label for="textInput">Employment:</label>
+                <input type="text" id="textInput" />
+              </li>
+              <li class="meta-list-item">
+                <label for="textInput">Occupation:</label>
+                <input type="text" id="textInput" />
+              </li>
+              <li class="meta-list-item">
+              <label for="textInput">Annual Salary:</label>
+                <input type="text" id="textInput" />
+              </li>
+            </ul>
+          </div>
+
+        <div class="large-6 columns">   
+          <ul class="meta-list">
+            <li class="meta-list-item">Medical History:
+              <ul class="meta-list">
+                <li class="meta-list-item">
+                  <label for="textInput">Item 1:</label>
+                  <input type="text" id="textInput" />
+                </li>
+                <li class="meta-list-item">
+                  <label for="textInput">Item 2:</label>
+                  <input type="text" id="textInput" />
+                </li>
+                <li class="meta-list-item">
+                  <label for="textInput">Item 3:</label>
+                  <input type="text" id="textInput" />
+                </li>
+                <li class="meta-list-item">
+                  <label for="textInput">Item 4:</label>
+                  <input type="text" id="textInput" />
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+
+{{> footer classes="stuck is-at-bottom" }}

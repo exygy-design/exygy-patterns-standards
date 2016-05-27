@@ -1,9 +1,19 @@
 .meta-list {
-  font-size: rem-calc(13);
   font-weight: $font-weight-semi;
+  line-height: rem-calc(27);
+  list-style: none;
   margin-bottom: 0;
+  margin-left: 0;
+
+  &.nested {
+    margin-left: rem-calc(20);
+  }
+
+  &.tall {
+    line-height: rem-calc(32);
+  }
 }
 
 .meta-list-item {
-  line-height: 1.75rem;
+  
 }
