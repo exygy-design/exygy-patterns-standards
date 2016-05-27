@@ -43,15 +43,8 @@
   }
 }
 
-// Font Icons (optional)
-// .icon {
-
-// }
-
-// @each $icon-name, $icon-size in $icon-sizes {
-//   &.icon {
-//     &-#{"" + $icon-name} {
-//       font-size: $icon-size;
-//     }
-//   }
-// }
+.has-icon {
+  .ui-icon {
+    margin-right: .5rem;
+  }
+}

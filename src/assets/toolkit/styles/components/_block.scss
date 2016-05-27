@@ -12,13 +12,27 @@
   padding: 1.5rem;
   position: relative;
 
-  &.attention {
-    background-color: $attention;
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &.attention,
+  &.primary {
     color: $white;
 
     a {
       color: $white;
     }
+  }
+
+  &.attention {
+    background-color: $attention;
+  }
+
+  &.primary {
+    background-color: $primary;
   }
 }
 
