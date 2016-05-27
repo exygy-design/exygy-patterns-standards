@@ -124,6 +124,6 @@ $position-default: null !default;
     margin-top: rem-calc(92);
   }
   &.with-hero {
-    margin-top: 3em;
+    margin-top: rem-calc(56);
   }
 }
