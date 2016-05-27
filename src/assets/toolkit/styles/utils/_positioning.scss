@@ -121,9 +121,17 @@ $position-default: null !default;
 
 .content {
   &.with-sticky-header {
-    margin-top: rem-calc(92);
+    margin-top: rem-calc(114);
+
+    @include breakpoint(medium up) {
+      margin-top: rem-calc(92);
+    }
   }
   &.with-hero {
-    margin-top: rem-calc(56);
+    margin-top: rem-calc(114);
+
+    @include breakpoint(medium up) {
+      margin-top: rem-calc(56);
+    }
   }
 }
