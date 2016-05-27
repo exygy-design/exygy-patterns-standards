@@ -121,7 +121,7 @@ $position-default: null !default;
 
 .content {
   &.with-sticky-header {
-    margin-top: 4em;
+    margin-top: rem-calc(92);
   }
   &.with-hero {
     margin-top: 3em;
