@@ -1,13 +1,18 @@
+.message-tabs {
+  border-width: 0;
+}
+
 .message-content {
-  max-height: 70vh;
+  height: 80vh;
   overflow-y: auto;
   position: relative;
+
+  &.vertical {
+   border-width: 0;
+  }
 }
 
 .message-input {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+   @include absolute(null,0,0,0);
 }
 

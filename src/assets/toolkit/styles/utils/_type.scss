@@ -18,9 +18,9 @@ $t-gamma: rem-calc(map-get(map-get($header-sizes, medium), h3));
 $t-delta: rem-calc(map-get(map-get($header-sizes, medium), h4));
 $t-epsilon: rem-calc(map-get(map-get($header-sizes, medium), h5));
 $t-base: rem-calc(map-get(map-get($header-sizes, medium), h6));
-$t-small: rem-calc(14);
-$t-tiny: rem-calc(12);
-$t-micro: rem-calc(10);
+$t-small: rem-calc(12);
+$t-tiny: rem-calc(10);
+$t-micro: rem-calc(9);
 
 .h1, .t-alpha {
   @extend %h1;

@@ -3,23 +3,23 @@
 <div class="content with-sticky-header">
   <div class="row collapse margin-top--2x margin-bottom--2x">
     <div class="medium-4 columns">
-      <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
+      <ul class="messages-tabs tabs vertical block-margins" id="example-vert-tabs" data-tabs>
         <li class="messages-title tabs-title is-active">
           <a href="#panel1v" aria-selected="true">
-          <h3 class="t-base">From: Ben Bills</h3>
+          <h3 class="messages-from t-base">From: Ben Bills</h3>
           <p>Re: Gloria Luck</p>
           </a>
         </li>
         <li class="messages-title tabs-title">
           <a href="#panel2v">
-            <h3 class="t-base">From: Ben Bills</h3>
-            <p>Re: Gloria Luck</p>
+            <h3 class="messages-from t-base">From: Ben Bills</h3>
+            <p>Re: Gloria Luck <span class="label small alert float-right">New</span></p>
           </a>
         </li>
       </ul>
     </div>
     <div class="medium-8 columns p-relative">
-      <div class="message-content tabs-content vertical" data-tabs-content="example-vert-tabs">
+      <div class="message-content tabs-content vertical block-margins" data-tabs-content="example-vert-tabs">
         <div class="message-panel tabs-panel is-active" id="panel1v">
           <header class="message-subect">
             <h1 class="message-title">Re: Stephanie Lang</h1>
@@ -27,12 +27,20 @@
           </header>
           <section class="message-feed">
             {{> message-object }}
-            {{> message-object }}
-            {{> message-object }}
-            {{> message-object }}
-            {{> message-object }}
-            {{> message-object }}
-            {{> message-object }}
+            <div class="message-object media-object">
+              <div class="media-object-section">
+                <div class="message-bubble right">
+                  <p>Marc<br>
+                  I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+                </div>
+              </div>
+              <div class="media-object-section">
+                <figure class="message-thumb">
+                  <img src="http://placehold.it/83x111">
+                  <figcaption class="message-time">10:38 am</figcaption>
+                </dfigureiv>
+              </div>
+            </div>
           </section>
         </div>
         <div class="tabs-panel" id="panel2v">
@@ -50,9 +58,8 @@
         <div class="tabs-panel" id="panel6v">
           <img class="thumbnail" src="assets/img/generic/rectangle-5.jpg">
         </div>
-      </div>
-      <div class="message-input">
-          {{> forms.message-input }}
+
+      {{> forms.message-input }}
       </div>
     </div>
   </div>

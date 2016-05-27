@@ -1,8 +1,9 @@
 %block-margins {
-  margin-top: rem-calc(3);
-  margin-right: 0; 
-  margin-bottom: rem-calc(3);
-  margin-left: rem-calc(3);
+  margin: rem-calc(3);
+
+  @include breakpoint(medium up) {
+    margin-right: 0; 
+  }  
 }
 
 .block {
@@ -19,6 +20,10 @@
       color: $white;
     }
   }
+}
+
+.block-margins {
+  @extend %block-margins;
 }
 
 .block-header {

@@ -1,0 +1,9 @@
+.message-input {
+  background-color: $white;
+  padding: 1rem;
+}
+
+.message-textarea {
+  background-color: rgba($primary, .05);
+  min-height: rem-calc(111);
+}

@@ -1,5 +1,14 @@
 .message-object {
   
+  &:nth-child(even) {
+    .message-bubble {
+      border: 1px solid $primary;
+    }
+
+    .message-time {
+      color: $primary;
+    }  
+  }
 }
 
 .message-thumb {
@@ -8,8 +17,66 @@
   text-transform: uppercase;
 }
 
+$messgae-arrow-outer-size: rem-calc(10);
+$messgae-arrow-inner-size: rem-calc(9);
+$messgae-arrow-outer-top: rem-calc(15);
+$messgae-arrow-inner-top: rem-calc(16);
+
 .message-bubble {
   border: 1px solid $attention;
   border-radius: rem-calc(10);
   padding: 1rem;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: -$messgae-arrow-outer-size;
+    top: $messgae-arrow-outer-top;
+
+    @include css-triangle(
+      $triangle-size: $messgae-arrow-outer-size,
+      $triangle-color: $attention,
+      $triangle-direction: left
+    );
+  }
+
+  &::after {
+    position: absolute;
+    left: -$messgae-arrow-inner-size;
+    top: $messgae-arrow-inner-top;
+
+    @include css-triangle(
+      $triangle-size: $messgae-arrow-inner-size,
+      $triangle-color: $white,
+      $triangle-direction: left
+    );
+  }
+
+&.right {
+    &::before {
+      left: auto;
+      right: -$messgae-arrow-outer-size;
+
+      @include css-triangle(
+        $triangle-size: $messgae-arrow-outer-size,
+        $triangle-color: $primary,
+        $triangle-direction: right
+      );
+    }
+
+    &::after {
+      left: auto;
+      right: -$messgae-arrow-inner-size;
+
+      @include css-triangle(
+        $triangle-size: $messgae-arrow-inner-size,
+        $triangle-color: $white,
+        $triangle-direction: right
+      );
+    }
+  }
 }
+
+.message-time {
+
+}  

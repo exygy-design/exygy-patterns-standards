@@ -1,5 +1,12 @@
+.messages-tabs {
+  background-color: transparent;
+  border-width: 0;
+}
+
 .messages-title {
-  
+  background-color: $white;
+  margin-bottom: 2px;
+
   p {
     &:last-of-type {
       margin-bottom: 0;
@@ -13,7 +20,7 @@
 
 .messages-title > a:focus,
 .messages-title > a[aria-selected='true'] {
-  background: $attention;
+  background-color: $attention;
   color: $white;
 }
 
@@ -29,7 +36,7 @@
   @include clearfix;
   background-color: $primary;
   color: $white;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 .message-title {

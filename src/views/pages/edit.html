@@ -1,7 +1,7 @@
 {{> top-bar classes="sticky is-stuck is-at-top column"}}
 
 <div class="content with-sticky-header">
-  <section class="row collapse padding-top--2x padding-bottom">
+  <section class="row collapse padding-bottom">
     <div class="medium-4 columns">
       
       {{> caption-overlay }}
@@ -9,7 +9,9 @@
       <section class="content-block block bg-white">
         <header class="block-header">
           <h3 class="block-title t-base">Foster Children</h3>
-          <a href="#" class="block-edit">Edit</a>
+          <span class="block-edit">
+            <a href="#" class="a-alert">Edit</a>
+          </span>
         </header>
 
         <div class="media-object">
@@ -36,10 +38,12 @@
     </div>
     <div class="medium-8 columns">
       <section class="block attention">
-        <a href="#" class="block-edit">Edit</a>
+        <span class="block-edit">
+          <a href="#">Edit</a>
+        </span>
         <ul class="meta-list no-bullet">
-          <li class="meta-list-item">{{> icons.icon fill="white"}} happydaddy@gmail.com</li>
-          <li class="meta-list-item">{{> icons.icon fill="white"}} 415-555-1212</li>
+          <li class="meta-list-item">{{> icons.icon ui="mail" fill="white"}} happydaddy@gmail.com</li>
+          <li class="meta-list-item">{{> icons.icon ui="phone" fill="white"}} 415-555-1212</li>
           <li class="meta-list-item">Preferred Mode of Contact: Phone</li>
         </ul>
       </section>
@@ -47,7 +51,9 @@
       <section class="content-block block bg-white">
         <header class="block-header">
           <h3 class="block-title t-base">Profile</h3>
-          <a href="#" class="block-edit">Save</a>
+          <span class="block-edit">
+            <a href="#">Save</a>
+          </span>
         </header>
 
         <div class="row">

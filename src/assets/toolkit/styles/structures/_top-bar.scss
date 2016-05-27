@@ -7,8 +7,15 @@
 }
 
 .top-bar-menu {
+
+  &.menu > li {
+    vertical-align: bottom;
+  }
+
   &.menu > li > a {
-    padding: 2.5rem 1rem .75rem;
+    line-height: rem-calc(13);
+    padding: rem-calc(24) rem-calc(13) rem-calc(13);
+    vertical-align: bottom;
   }
 
   &.menu .active > a {
@@ -19,7 +26,7 @@
 }
 
 .top-bar-menu-item {
-
+  position: relative;
 }
 
 .top-bar-menu-link {
@@ -28,5 +35,13 @@
   font-weight: $font-weight-black;
   font-size: $t-tiny;
   text-transform: uppercase;
+}
+
+.top-bar-badge {
+  vertical-align: bottom;
+
+  &.attention {
+    background-color: $attention;
+  }
 }
 

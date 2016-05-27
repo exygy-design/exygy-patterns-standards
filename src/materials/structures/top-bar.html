@@ -1,20 +1,27 @@
 <nav class="top-bar {{default classes ''}}">
   <div class="row">
-      <div class="medium-4 columns text-center">
-        <div class="top-bar-logo">Care Giver</div>
-      </div>
-      <div class="top-bar-right">
-       <ul class="top-bar-menu menu" data-dropdown-menu>
-          <li class="top-bar-menu-item active">
-            <a href="#" class="top-bar-menu-link">One</a>
-          </li>
-          <li class="top-bar-menu-item">
-            <a href="#" class="top-bar-menu-link">Two</a>
-          </li>
-          <li class="top-bar-menu-item">
-            <a href="#" class="top-bar-menu-link">Three</a>
-          </li>
-        </ul>
+    <div class="medium-4 columns">
+      <div class="top-bar-logo">
+        <svg class="logo-svg">
+          <use xlink:href="#i-{{default ui 'care'}}" />
+        </svg>
+        <span class="logo-name">
+          Care Finder
+        </span>
       </div>
     </div>
+    <div class="top-bar-right">
+     <ul class="top-bar-menu menu" data-dropdown-menu>
+        <li class="top-bar-menu-item active">
+          <a href="#" class="top-bar-menu-link">One</a>
+        </li>
+        <li class="top-bar-menu-item">
+          <a href="#" class="top-bar-menu-link">Two <span class="top-bar-badge badge alert">1</span></a>
+        </li>
+        <li class="top-bar-menu-item">
+          <a href="#" class="top-bar-menu-link">Three</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

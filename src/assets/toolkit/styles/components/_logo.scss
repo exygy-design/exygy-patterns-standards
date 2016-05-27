@@ -1,0 +1,16 @@
+.logo-svg {
+  height: 2.5rem;
+  margin-right: .5rem;
+  width: 2.5rem;
+  display: inline-block;
+  vertical-align: middle;
+
+  use {
+    fill: $primary;
+  }
+}
+
+.logo-name {
+  color: $primary;
+  font-size: 1.5rem;
+}

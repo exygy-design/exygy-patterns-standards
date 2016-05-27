@@ -3,33 +3,8 @@
   left: -999em;
 }
 
-@mixin type-weight($weight) {
-  font-weight: map-get($type-weight, $weight) !important;
+@mixin relative-middle {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
-// Font Icons
-// @mixin icon-size( $size ){
-//   font-size: map-get( $icon-sizes, $size );
-// }
-
-// @mixin icomoon-icon( $icon:false, $size:false ) {
-//   /* use !important to prevent issues with browser extensions that change fonts */
-//   font-family: 'icomoon' !important;
-//   speak: none;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   text-transform: none;
-//   line-height: 1;
-
-//   /* Better Font Rendering =========== */
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-
-//   @if $size {
-//     @include icon-size( $size );
-//   }
-//   @if $icon {
-//     content: $icon;
-//   }
-// }

@@ -20,33 +20,16 @@ button:
     Expanded: expanded
 icons:
   symbols:
-    - saved
-    - add
-    - approved
-    - comment-added
-    - edited
-    - forwarded
-    - task-acquired
-    - rejected
-    - opened
-    - generic-task
-    - generic-recent
-    - delete
-    - folder
-    - cabinet
-    - chevron-down
-    - chevron-left
-    - chevron-right
-    - chevron-up
-    - dots-three-vertical
-    - file
-    - help-with-circle
-    - info-with-circle
-    - lock-open
-    - lock
-    - send
-    - star
-    - warning
+    - health
+    - money
+    - time
+    - mail
+    - phone
+    - gender
+    - job
+    - love
+    - care
+    - religion
   fills:
     - primary
     - secondary
