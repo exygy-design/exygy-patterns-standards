@@ -6,12 +6,7 @@
   width: rem-calc(16);
   height: rem-calc(16);
   vertical-align: middle;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-  }
+  margin-top: -3px;
 
   use {
     fill: black;
@@ -23,8 +18,8 @@
   }
 
   &.i-small {
-    width: rem-calc(12);
-    height: rem-calc(12);
+    width: rem-calc(13);
+    height: rem-calc(13);
   }
 
   &.i-base {
@@ -42,16 +37,3 @@
     height: rem-calc(32);
   }
 }
-
-// Font Icons (optional)
-// .icon {
-
-// }
-
-// @each $icon-name, $icon-size in $icon-sizes {
-//   &.icon {
-//     &-#{"" + $icon-name} {
-//       font-size: $icon-size;
-//     }
-//   }
-// }

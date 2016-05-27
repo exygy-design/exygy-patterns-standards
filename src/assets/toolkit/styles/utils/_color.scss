@@ -37,10 +37,8 @@
 .i {
   @each $color-name, $color-value in $colors {
     &-#{"" + $color-name} {
-      svg {
-        use { 
-          fill: $color-value !important;
-        }
+      use { 
+        fill: $color-value !important;
       }
     }  
   }  
