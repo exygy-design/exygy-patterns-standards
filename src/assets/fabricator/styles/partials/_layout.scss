@@ -26,6 +26,12 @@ body {
 	}
 }
 
+.f-body {
+	&:before {
+		background: #fff;
+	}
+}
+
 .f-container {
 	@include clearfix;
 	@include border-box;
