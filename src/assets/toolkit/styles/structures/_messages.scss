@@ -4,12 +4,20 @@
 
 .message-content {
   height: 80vh;
-  overflow-y: auto;
   position: relative;
 
   &.vertical {
    border-width: 0;
   }
+}
+
+.message-panel {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.message-feed {
+  padding-bottom: rem-calc(200); // better done with js
 }
 
 .message-input {
