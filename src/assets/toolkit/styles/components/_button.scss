@@ -1,4 +1,13 @@
 .button, button {
   font-weight: $font-weight-bold;
   border-width: 2px !important;
+
+  &.attention {
+    background-color: $attention;
+
+    &:hover,
+    &:focus {
+      background-color: darken($attention, 5%);
+    }
+  }
 }

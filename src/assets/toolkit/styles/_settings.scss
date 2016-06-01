@@ -369,22 +369,22 @@ $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
 $select-triangle-color: $dark-gray;
-$select-radius: $global-radius;
+$select-radius: 0;
 $input-color: $black;
 $input-placeholder-color: $medium-gray;
 $input-font-family: inherit;
 $input-font-size: rem-calc(13);
-$input-background: rgba($primary, .05);
-$input-background-focus: rgba($primary, .1);
+$input-background: none;
+$input-background-focus: none;
 $input-background-disabled: $light-gray;
-$input-border: 1px solid $primary;
+$input-border: 1px solid #d3d3d3;
 $input-border-focus: 1px solid $primary;
-$input-shadow: inset 0 1px 2px rgba($black, 0.1);
-$input-shadow-focus: 0 0 5px $primary;
+$input-shadow: none;
+$input-shadow-focus: none;
 $input-cursor-disabled: not-allowed;
-$input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+$input-transition: none;
 $input-number-spinners: true;
-$input-radius: $global-radius;
+$input-radius: 0;
 
 // 20. Label
 // ---------
