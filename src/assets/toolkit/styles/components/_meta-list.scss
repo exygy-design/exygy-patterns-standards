@@ -12,6 +12,14 @@
   &.tall {
     line-height: rem-calc(32);
   }
+
+  &.short {
+    line-height: rem-calc(20);
+  }
+
+  &.spaced {
+    letter-spacing: rem-calc(1.17);
+  }
 }
 
 .meta-list-item {

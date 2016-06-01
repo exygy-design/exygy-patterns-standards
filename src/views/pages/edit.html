@@ -36,8 +36,13 @@
 
       </section>
     </div>
+
     <div class="medium-8 columns">
       <section class="block attention">
+        <p class="has-icon">{{> icons.icon ui="mail" fill="white"}} JAMES MIDDLEDITCH</p>
+      </section>
+
+      <section class="block primary">
         <span class="block-edit">
           <a href="#">Edit</a>
         </span>
@@ -52,69 +57,96 @@
         <header class="block-header">
           <h3 class="block-title t-base">Profile</h3>
           <span class="block-edit">
-            <a href="#">Save</a>
+            <a href="#" class="a-medium-gray">Cancel</a>
           </span>
         </header>
 
-        <div class="row">
-          <div class="large-6 columns">
+        <div class="row padding-bottom--2x">
+          <div class="large-8 large-centered columns">
             <ul class="meta-list tall">
               <li class="meta-list-item">
-                <label for="textInput">Gender:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="gender" fill="primary" classes="inline-form-icon"}}
+                  <label for="textInput" class="inline-form-label">Gender:</label>
+                  <div class="inline-form-group radio-group-inline">
+                    <div class="radio radio-inline">
+                      <input type="radio" name="groupName" id="radio1" /> 
+                      <label for="radio1">Radio 1</label>
+                    </div>
+
+                    <div class="radio radio-inline">
+                      <input type="radio" name="groupName" id="radio2" /> 
+                      <label for="radio2">Radio 2</label>
+                    </div>
+                  </div>
+                </div>
               </li>
               <li class="meta-list-item">
-                <label for="textInput">Marital Status:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="love" fill="primary" classes="inline-form-icon"}}
+                  <label class="inline-form-label">Marital Status</label>
+                  {{> forms.select classes="inline-form-input"}}
+                </div>
               </li>
               <li class="meta-list-item">
-                <label for="textInput">Religion:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="religion" fill="primary" classes="inline-form-icon"}}
+                  <label class="inline-form-label">Religion</label>
+                  {{> forms.select classes="inline-form-input"}}
+                </div>
               </li>
               <li class="meta-list-item">
-                <label for="textInput">Race:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="love" fill="white" classes="inline-form-icon"}}
+                  <label class="inline-form-label">Race</label>
+                  {{> forms.select classes="inline-form-input"}}
+                </div>
               </li>
               <li class="meta-list-item">
-                <label for="textInput">Employment:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="job" fill="primary" classes="inline-form-icon"}}
+                  <label class="inline-form-label">Employment Status</label>
+                  {{> forms.select classes="inline-form-input"}}
+                </div>
               </li>
               <li class="meta-list-item">
-                <label for="textInput">Occupation:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="time" fill="primary" classes="inline-form-icon"}}
+                  <label for="textInput" class="inline-form-label">Occupation</label>
+                  <input type="text" id="textInput" class="inline-form-input" />
+                </div>
               </li>
               <li class="meta-list-item">
-              <label for="textInput">Annual Salary:</label>
-                <input type="text" id="textInput" />
+                <div class="inline-form">
+                  {{> icons.icon ui="money" fill="primary" classes="inline-form-icon"}}
+                  <label for="textInput" class="inline-form-label">Annual Income</label>
+                  <input type="text" id="textInput" class="inline-form-input" />
+                </div>
               </li>
             </ul>
           </div>
-
-        <div class="large-6 columns">   
-          <ul class="meta-list">
-            <li class="meta-list-item">Medical History:
-              <ul class="meta-list">
-                <li class="meta-list-item">
-                  <label for="textInput">Item 1:</label>
-                  <input type="text" id="textInput" />
-                </li>
-                <li class="meta-list-item">
-                  <label for="textInput">Item 2:</label>
-                  <input type="text" id="textInput" />
-                </li>
-                <li class="meta-list-item">
-                  <label for="textInput">Item 3:</label>
-                  <input type="text" id="textInput" />
-                </li>
-                <li class="meta-list-item">
-                  <label for="textInput">Item 4:</label>
-                  <input type="text" id="textInput" />
-                </li>
-              </ul>
-            </li>
-          </ul>
         </div>
 
+        <header class="block-header">
+          <h3 class="block-subtitle t-base">Medical History</h3>
+        </header>
+
+        <div class="row">
+          <div class="large-8 large-centered columns">   
+            <ul class="meta-list">
+              <div class="inline-form">
+                {{> icons.icon ui="health" fill="primary" classes="inline-form-icon"}}
+                <label for="textInput" class="inline-form-label">Medical History</label>
+                <textarea type="text" class="inline-form-input tall"></textarea>
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 large-centered columns">     
+            {{> buttons.button text="Save" size="large" color="attention" classes="expanded"}}
+          </div>
         </div>
       </section>
     </div>

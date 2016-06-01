@@ -2,4 +2,43 @@ textarea {
   &.rounded {
     border-radius: rem-calc(10);
   }
+
+  &.tall {
+    min-height: rem-calc(100);
+  }
 }
+
+#{text-inputs()},
+textarea,
+select {
+  border-top-width: 0 !important;
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}
+
+.inline-form {
+  position: relative;
+  min-height: rem-calc(42);
+}
+
+.inline-form-group {
+  margin-bottom: 1rem;
+}
+
+.inline-form-label {
+  @include absolute(0,null,null,0);
+  padding: rem-calc(10);
+  width: 50%;
+}
+
+.inline-form-input,
+.inline-form-group {
+  padding-left: 50% !important;
+}
+
+.inline-form-icon {
+  @include absolute(1.25rem,null,null,-1.5rem);
+  display: block !important;
+  margin-top: 0;
+}
+

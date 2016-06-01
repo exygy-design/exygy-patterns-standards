@@ -10,7 +10,7 @@
 
 $color-focus:           #3e94cf;
 $color-visited:         #4c2c92;
-$color-primary:        $primary;
+$color-primary:        $attention;
 $color-white:              #fff;
 $color-gray:          $dark-gray;
 $color-gray-light:  $medium-gray;
@@ -21,7 +21,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background-color: $light-gray;
+  background-color: none;
   background-image: none, url('../images/arrow-down.svg'), url('../images/arrow-down.png');
   background-position: right .75rem center;
   background-repeat: no-repeat;
@@ -53,27 +53,28 @@ input[type="radio"] + label {
   font-weight: 400;
   margin-bottom: 0.5em;
   display: block;
+  margin-left: 0;
 }
 
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;
   border-radius: $border-radius;
-  box-shadow: 0 0 0 1px $medium-gray;
+  box-shadow: 0 0 0 1px $primary;
   content: '\a0';
   display: inline-block;
-  height: 1.25rem;
-  line-height: .8;
+  height: 1rem;
+  line-height: .6;
   margin-right: .6em;
   text-indent: .15em;
   vertical-align: .2em;
-  width: 1.25rem;
+  width: 1rem;
 }
 
 input[type="radio"] + label::before {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 3px $medium-gray;
-  height:1.2rem;
-  width: 1.2rem;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px $primary;
+  height:.8rem;
+  width: .8rem;
 }
 
 input[type="radio"] + label::before {
@@ -87,7 +88,7 @@ input[type="radio"]:checked + label::before {
 }
 
 input[type="radio"]:checked + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $medium-gray;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $primary;
 }
 
 input[type="radio"]:focus + label::before {
@@ -114,4 +115,19 @@ input[type="radio"]:disabled + label::before {
   background: $light-gray;
   box-shadow: 0 0 0 1px $medium-gray;
   cursor: not-allowed;
+}
+
+.radio-group,
+.radio-group-inline {
+  p {
+    label {
+      text-transform: none;
+    }
+  }
+}
+
+.radio-group-inline {
+  .radio-inline {
+    display: inline-block;
+  }
 }
