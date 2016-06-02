@@ -33,10 +33,10 @@ select {
 .inline-form-label {
   @include absolute(0,null,null,1.5rem);
   padding: rem-calc(10);
-  width: 50%;
+  width: 45%;
 
   @include breakpoint(medium up) {
-    right: 0;
+    left: 0;
   }  
 }
 
@@ -59,7 +59,10 @@ select.inline-form-input {
   margin-top: 0;
 
   @include breakpoint(medium up) {
-    right: -1.5rem;
+    left: -1.5rem;
   }  
 }
 
+.is-invalid-input:not(:focus) {
+  background-color: transparent !important;
+}

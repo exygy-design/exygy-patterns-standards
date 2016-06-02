@@ -96,11 +96,14 @@
                 </div>
               </li>
               <li class="meta-list-item">
-                <div class="inline-form border-bottom">
+                <div class="inline-form border-bottom is-invalid-input">
                   {{> icons.icon ui="love" fill="white" classes="inline-form-icon"}}
-                  <label class="inline-form-label">Race</label>
+                  <label class="inline-form-label is-invalid-label">Race</label>
                   {{> forms.select classes="inline-form-input"}}
                 </div>
+                <span class="form-error is-visible">
+                    Yo, you had better fill this out, it's required.
+                  </span>
               </li>
               <li class="meta-list-item">
                 <div class="inline-form border-bottom">
@@ -112,8 +115,11 @@
               <li class="meta-list-item">
                 <div class="inline-form">
                   {{> icons.icon ui="time" fill="primary" classes="inline-form-icon"}}
-                  <label for="textInput" class="inline-form-label">Occupation</label>
-                  <input type="text" id="textInput" class="inline-form-input" />
+                  <label for="textInput" class="inline-form-label is-invalid-label">Occupation</label>
+                  <input type="text" id="textInput" class="inline-form-input is-invalid-input" />
+                  <span class="form-error is-visible">
+                    Yo, you had better fill this out, it's required.
+                  </span>
                 </div>
               </li>
               <li class="meta-list-item">
