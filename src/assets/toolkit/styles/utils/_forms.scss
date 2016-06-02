@@ -9,7 +9,6 @@ textarea {
 }
 
 #{text-inputs()},
-textarea,
 select {
   border-top-width: 0 !important;
   border-left-width: 0 !important;
@@ -26,9 +25,13 @@ select {
 }
 
 .inline-form-label {
-  @include absolute(0,null,null,0);
+  @include absolute(0,null,null,1.5rem);
   padding: rem-calc(10);
   width: 50%;
+
+  @include breakpoint(medium up) {
+    right: 0;
+  }  
 }
 
 .inline-form-input,
@@ -37,8 +40,12 @@ select {
 }
 
 .inline-form-icon {
-  @include absolute(1.25rem,null,null,-1.5rem);
+  @include absolute(1.25rem,null,null,0);
   display: block !important;
   margin-top: 0;
+
+  @include breakpoint(medium up) {
+    right: -1.5rem;
+  }  
 }
 
