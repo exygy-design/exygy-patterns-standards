@@ -16,8 +16,14 @@ select {
 }
 
 .inline-form {
+  @include clearfix;
   position: relative;
   min-height: rem-calc(42);
+
+  &.border-bottom {
+    border-bottom: 1px solid $border-gray;
+    margin-bottom: rem-calc(20);
+  }
 }
 
 .inline-form-group {
@@ -37,6 +43,14 @@ select {
 .inline-form-input,
 .inline-form-group {
   padding-left: 50% !important;
+}
+
+select.inline-form-input {
+  border-bottom-width: 0;
+  float: right;
+  padding-left: 0 !important;
+  width: 50%;
+  margin-bottom: 0;
 }
 
 .inline-form-icon {

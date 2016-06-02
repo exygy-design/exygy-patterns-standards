@@ -30,6 +30,8 @@ icons:
     - love
     - care
     - religion
+    - star
+    - down
   fills:
     - primary
     - secondary
