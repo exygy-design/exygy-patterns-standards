@@ -1,13 +1,12 @@
 .message-object {
-  
-  &:nth-child(even) {
+  &.right {
     .message-bubble {
       border: 1px solid $primary;
     }
 
     .message-time {
       color: $primary;
-    }  
+    }
   }
 }
 
@@ -52,7 +51,8 @@ $messgae-arrow-inner-top: rem-calc(16);
     );
   }
 
-&.right {
+  &.right {
+
     &::before {
       left: auto;
       right: -$messgae-arrow-outer-size;
