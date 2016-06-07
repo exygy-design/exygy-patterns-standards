@@ -124,7 +124,7 @@ $position-default: null !default;
     margin-top: rem-calc(57);
 
     @include breakpoint(medium up) {
-      margin-top: rem-calc(57);
+      margin-top: rem-calc(87);
     }
   }
   &.with-hero {

@@ -5,9 +5,21 @@
 
 .message-textarea {
   background-color: rgba($primary, .05);
-  min-height: rem-calc(111);
+  min-height: rem-calc(80);
+
+  @include breakpoint(medium up) {
+    min-height: rem-calc(111);
+  }  
 }
 
 .message-button {
   margin-bottom: 0;
+}
+
+.message-button-wrap {
+  text-align: center;
+
+  @include breakpoint(medium up) {
+    float: right;
+  }  
 }

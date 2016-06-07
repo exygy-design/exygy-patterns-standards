@@ -130,4 +130,8 @@ input[type="radio"]:disabled + label::before {
   .radio-inline {
     display: inline-block;
   }
+
+  input[type="radio"] + label {
+    margin-bottom: 0;
+  }
 }
