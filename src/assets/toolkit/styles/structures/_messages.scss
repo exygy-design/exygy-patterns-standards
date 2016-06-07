@@ -24,3 +24,16 @@
    @include absolute(null,0,0,0);
 }
 
+.message-placeholder {
+  border: 1px solid $primary;
+  border-radius: rem-calc(10);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+
+  p {
+    color: $medium-gray;
+    font-size: $t-epsilon;
+    margin-bottom: 0;
+  }
+}
