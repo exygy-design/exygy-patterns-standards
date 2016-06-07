@@ -10,4 +10,8 @@
       background-color: darken($attention, 5%);
     }
   }
+
+  &.wide {
+    width: 80%;
+  }
 }

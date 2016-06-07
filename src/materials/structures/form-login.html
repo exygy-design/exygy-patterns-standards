@@ -1,15 +1,22 @@
 <form>
-  <div class="row column log-in-form padding--2x">
-    <h4 class="text-center">Sign in</h4>
-    <label>Email
-      <input type="text" placeholder="somebody@example.com">
-    </label>
-    <label>Password
-      <input type="text" placeholder="Password">
-    </label>
-    <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-    <p><a type="submit" class="button expanded">Log In</a></p>
-    <p class="text-center"><a href="#">Forgot your password?</a></p>   
+  <div class="row column log-in-form">
+    <header class="form-header">
+      <h1 class="form-title t-epsilon">Sign in to Your Account</h1>
+    </header>
+    <div class="form-group">
+      <div class="inline-form">
+        <label class="inline-form-label t-bold">Email</label>
+        <input class="inline-form-input" type="text" placeholder="somebody@example.com">
+      </div>
+      <div class="inline-form">
+        <label class="inline-form-label t-bold">Password</label>
+        <input class="inline-form-input" type="password" placeholder="Password">
+      </div>
+      <div class="row">
+        <div class="large-10 large-centered columns text-center">
+          <p class="form-submit "><a type="submit" class="button t-base attention large expanded">Log In</a></p>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
-
