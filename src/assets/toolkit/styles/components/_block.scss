@@ -55,6 +55,10 @@
   @include absolute(1.5rem,1.5rem,null,null);
   color: $attention;
   text-decoration: underline;
+
+  a {
+    font-size: $t-small;
+  }
 }
 
 .image-block {

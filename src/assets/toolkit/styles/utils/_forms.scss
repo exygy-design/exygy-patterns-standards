@@ -34,6 +34,7 @@ select {
 
 .inline-form-label {
   @include absolute(0,null,null,1.5rem);
+  font-weight: $font-weight-black;
   padding: rem-calc(10);
   width: 45%;
 

@@ -14,4 +14,9 @@
   &.wide {
     width: 80%;
   }
+
+  &.expanded {
+    font-size: $t-base;
+    line-height: rem-calc(32);
+  }
 }
