@@ -18,17 +18,20 @@ $hero-color: white;
 .hero-inner {
   @include clearfix;
   margin: auto;
-  padding: 3.5em;
+  padding: 1.5em;
   text-align: center;
+  display: table-cell;
+  vertical-align: bottom;
 }
 
 .hero-copy {
-  text-align: center;
+  text-align: left;
 }
 
 .hero-header {
   color: $hero-color;
   margin-bottom: 0.5em;
+  text-transform: uppercase;
 }
 
 .hero-text {
