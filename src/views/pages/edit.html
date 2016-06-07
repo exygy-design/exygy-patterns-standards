@@ -39,7 +39,7 @@
 
     <div class="medium-8 columns">
       <section class="block attention">
-        <p class="has-icon">{{> icons.icon ui="warn" fill="white"}} JAMES MIDDLEDITCH</p>
+        <p class="has-icon">{{> icons.icon ui="warn" fill="white"}} Due to changes to your details, your foster status is pending review.</p>
       </section>
 
       <section class="block primary">
@@ -154,8 +154,24 @@
           </div>
         </div>
       </section>
+
+      <section class="content-block block bg-white">
+        <header class="block-header">
+          <h3 class="block-title t-base">Household Size</h3>
+          <span class="block-edit">
+            <a href="#" class="a-medium-gray">Cancel</a>
+          </span>
+        </header>
+
+        <section class="block block-expand attention">
+          <p class="has-icon">{{> icons.icon ui="warn" fill="white"}} If you make changes to the following information your parenting status will change.</p>
+        </section>
+
+      </section>
     </div>
   </section>
+
+  
 </div>
 
 {{> footer classes="stuck is-at-bottom" }}

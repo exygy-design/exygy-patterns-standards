@@ -1,4 +1,6 @@
 textarea {
+  resize: none;
+
   &.rounded {
     border-radius: rem-calc(10);
   }
