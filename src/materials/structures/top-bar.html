@@ -2,6 +2,9 @@
   <div class="row">
     <div class="medium-4 columns">
       <div class="top-bar-logo">
+        <span class="hide-for-medium">
+          <button class="menu-icon dark" type="button" data-toggle="responsive-menu"></button>
+        </span>
         <svg class="logo-svg">
           <use xlink:href="#i-{{default ui 'care'}}" />
         </svg>
@@ -10,7 +13,7 @@
         </span>
       </div>
     </div>
-    <div class="top-bar-right">
+    <div id="responsive-menu" class="toggle-menu" data-toggler="show-menu">
      <ul class="top-bar-menu menu" data-dropdown-menu>
         <li class="top-bar-menu-item active">
           <a href="#" class="top-bar-menu-link">One</a>
@@ -23,5 +26,5 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div>  
 </nav>

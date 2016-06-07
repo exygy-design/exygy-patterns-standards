@@ -45,3 +45,38 @@
   }
 }
 
+.toggle-menu {
+  float: right;
+
+  @include breakpoint(small only) {
+    float: left;
+    width: 100%;
+  }
+
+  .menu {
+    @include breakpoint(small only) {
+      display: none;
+    }
+  }
+
+  &.show-menu {
+    .menu {
+      display: block;
+    }
+  }
+
+  @include breakpoint(small only) {
+    .menu > li {
+      display: block;
+    }
+  }
+}
+
+.menu-icon.dark {
+  margin-right: 1rem;
+
+  &::after {
+    background: $primary;
+    box-shadow: 0 7px 0 $primary, 0 14px 0 $primary;
+  }
+}
