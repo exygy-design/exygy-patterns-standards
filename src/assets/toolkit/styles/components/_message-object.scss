@@ -26,6 +26,7 @@ $messgae-arrow-inner-top: rem-calc(16);
   border-radius: rem-calc(10);
   padding: 1rem;
   position: relative;
+  white-space: pre-wrap;
 
   &::before {
     position: absolute;
@@ -79,4 +80,4 @@ $messgae-arrow-inner-top: rem-calc(16);
 
 .message-time {
 
-}  
+}
