@@ -1,0 +1,11 @@
+.callout {
+  &.search {
+    @include breakpoint(small only) {
+      padding: 1.5rem;
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
