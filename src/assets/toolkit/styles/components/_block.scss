@@ -51,7 +51,7 @@
   text-transform: uppercase;
 }
 
-.block-edit {
+.block-edit, .block-cancel {
   @include absolute(1.4rem,1.5rem,null,null);
   color: $attention;
   text-decoration: underline;
@@ -59,6 +59,10 @@
   a {
     font-size: $t-small;
   }
+}
+
+.block-cancel {
+  @include absolute(0.9rem,1.5rem,null,null);
 }
 
 .image-block {
