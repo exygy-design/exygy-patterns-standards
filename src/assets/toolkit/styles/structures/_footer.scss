@@ -1,5 +1,5 @@
 .footer {
-  background-color: $light-gray;
+  background-color: #ffffff;
   text-align: center;
   font-size: 1rem;
   padding: 1.5rem 0;
@@ -9,7 +9,7 @@
   color: #8f9296;
   
   @include breakpoint(medium up) {
-    text-align: left;
+    text-align: right;
   }
 }
 
@@ -18,15 +18,15 @@
 }
 
 .footer-contact {
-  color: $dark-gray;
+  color: #8f9296;
 
   @include breakpoint(medium up) {
-    text-align: right;
+    text-align: left;
   }
 }
 
 // Simple sticky footer
-$sticky-footer-height: rem-calc(56);
+$sticky-footer-height: rem-calc(156);
 
 @include breakpoint(medium up) {
   html {
