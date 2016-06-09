@@ -6,7 +6,7 @@ $hero-color: white;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 400px;
+  height: 400px;
   border-bottom: 5px solid $attention;
 }
 
@@ -40,5 +40,5 @@ $hero-color: white;
 .hero-text {
   color: $hero-color;
   line-height: 1.4em;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
