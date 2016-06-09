@@ -28,6 +28,12 @@ select {
   }
 }
 
+.inline-form-left-padding {
+  @include breakpoint(medium up) {
+    padding-left: 0.5rem;
+  }
+}
+
 .inline-form-group {
   margin-bottom: 1rem;
 }
@@ -40,7 +46,13 @@ select {
 
   @include breakpoint(medium up) {
     left: 0;
-  }  
+  }
+}
+
+.inline-form-label-left-padding {
+  @include breakpoint(medium up) {
+    left: 0.5rem;
+  }
 }
 
 .inline-form-input,
@@ -63,7 +75,7 @@ select.inline-form-input {
 
   @include breakpoint(medium up) {
     left: -1.5rem;
-  }  
+  }
 }
 
 .is-invalid-input:not(:focus) {
