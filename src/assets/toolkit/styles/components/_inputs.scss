@@ -127,8 +127,11 @@ input[type="radio"]:disabled + label::before {
 }
 
 .radio-group-inline {
+  padding: .76923rem;
+
   .radio-inline {
     display: inline-block;
+    vertical-align: top;
   }
 
   input[type="radio"] + label {
