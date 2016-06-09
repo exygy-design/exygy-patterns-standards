@@ -2,8 +2,8 @@
   margin: rem-calc(3);
 
   @include breakpoint(medium up) {
-    margin-right: 0; 
-  }  
+    margin-right: 0;
+  }
 }
 
 .block {
@@ -52,7 +52,7 @@
 }
 
 .block-edit {
-  @include absolute(1.5rem,1.5rem,null,null);
+  @include absolute(1.4rem,1.5rem,null,null);
   color: $attention;
   text-decoration: underline;
 
