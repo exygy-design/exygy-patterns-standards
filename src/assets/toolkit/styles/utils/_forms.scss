@@ -47,6 +47,9 @@ select {
   @include breakpoint(medium up) {
     left: 0;
   }
+  @include breakpoint(390px down) {
+    position: relative;
+  }
 }
 
 .inline-form-label-left-padding {
